@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+  overflow-x: hidden;
   background: black;
   color: white;
 }
@@ -25,7 +25,7 @@ body {
   width: 100%;
   height: 100%;
   background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d") center/cover no-repeat;
-  filter: brightness(0.3) contrast(1.2);
+  filter: brightness(0.25) contrast(1.2);
   z-index: -2;
 }
 
@@ -41,21 +41,21 @@ body {
 /* ✨ частицы */
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   background: white;
   border-radius: 50%;
   opacity: 0.6;
-  animation: move 10s linear infinite;
+  animation: fall linear infinite;
 }
 
-@keyframes move {
-  from { transform: translateY(100vh); opacity: 0; }
-  to { transform: translateY(-10vh); opacity: 1; }
+@keyframes fall {
+  from { transform: translateY(-10vh); opacity: 0; }
+  to { transform: translateY(110vh); opacity: 1; }
 }
 
-/* 🧠 центр */
-.container {
+/* 🔝 HERO */
+.hero {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -64,58 +64,112 @@ body {
   flex-direction: column;
 }
 
-/* ✍️ graffiti стиль */
-.title {
-  font-size: 60px;
-  font-weight: bold;
-  color: white;
+/* САМЫЙ ЛЕГЕНДАРНЫЙ */
+.hero h1 {
+  font-size: 50px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fade 2s ease;
-  text-shadow:
-    0 0 10px #b266ff,
-    0 0 20px #7a2cff;
+  color: white;
+  text-shadow: 0 0 10px #b266ff;
+  animation: fadeUp 1.5s ease;
 }
 
-/* ROLEPLAY */
-.roleplay {
-  font-size: 40px;
+/* ROLEPLAY с анимацией */
+.hero h2 {
+  font-size: 55px;
   color: #b266ff;
-  margin-top: 10px;
-  letter-spacing: 5px;
-  animation: fade 2.5s ease;
+  letter-spacing: 6px;
+
+  animation: glow 2s infinite ease-in-out;
 }
 
-/* сервер */
-.subtitle {
-  margin-top: 10px;
-  font-size: 18px;
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #b266ff, 0 0 10px #6a0dad; transform: scale(1); }
+  50% { text-shadow: 0 0 20px #d18cff, 0 0 40px #6a0dad; transform: scale(1.05); }
+  100% { text-shadow: 0 0 5px #b266ff, 0 0 10px #6a0dad; transform: scale(1); }
+}
+
+.hero p {
+  margin-top: 15px;
+  max-width: 700px;
   opacity: 0.8;
-  animation: fade 3s ease;
+  animation: fadeUp 2s ease;
 }
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* кнопка */
+/* кнопки */
 .btn {
-  margin-top: 25px;
+  margin-top: 20px;
   padding: 14px 30px;
   background: linear-gradient(90deg, #6a0dad, #b266ff);
   border: none;
+  border-radius: 12px;
   color: white;
   font-size: 18px;
-  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
-  animation: fade 3.5s ease;
 }
 
 .btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px #b266ff;
+}
+
+/* Discord кнопка */
+.discord {
+  margin-top: 12px;
+  padding: 12px 25px;
+  background: #5865F2;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.discord:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #5865F2;
+}
+
+/* секции */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 26px;
+  color: #b266ff;
+  margin-bottom: 15px;
+}
+
+/* карточки */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  width: 260px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(178,102,255,0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(178,102,255,0.4);
+}
+
+/* анимации появления */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -126,24 +180,65 @@ body {
 <div class="overlay"></div>
 
 <script>
-/* ✨ создаём частицы */
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 50; i++) {
   let p = document.createElement("div");
   p.className = "particle";
   p.style.left = Math.random() * 100 + "vw";
-  p.style.animationDuration = (5 + Math.random() * 10) + "s";
+  p.style.animationDuration = (3 + Math.random() * 7) + "s";
   document.body.appendChild(p);
 }
 </script>
 
-<div class="container">
+<!-- HERO -->
+<div class="hero">
 
-  <div class="title">САМЫЙ ЛЕГЕНДАРНЫЙ</div>
-  <div class="roleplay">ROLEPLAY</div>
-  <div class="subtitle">СЕРВЕР В MINECRAFT</div>
+  <h1>САМЫЙ ЛЕГЕНДАРНЫЙ</h1>
+  <h2>ROLEPLAY</h2>
 
-  <button class="btn">ENTER WORLD</button>
+  <p>
+    СЕРВЕР В MINECRAFT<br><br>
+    Стань бандитом, полицейским, чиновником, бизнесменом или выбери любую профессию.
+    Здесь нет ограничений — ты сам создаёшь свою историю.
+  </p>
 
+  <button class="btn">Купить донат</button>
+
+  <!-- DISCORD -->
+  <button class="discord" onclick="window.open('https://discord.gg/yourlink','_blank')">
+    Discord сервер
+  </button>
+
+</div>
+
+<!-- SERVER -->
+<div class="section">
+  <div class="title">СЕРВЕР ОНЛАЙН</div>
+  <p>mc.atlantworld.com</p>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="title">МЫ В СОЦСЕТЯХ</div>
+  <p>Снимаешь контент? Зарабатывай с нами</p>
+</div>
+
+<!-- HOW TO PLAY -->
+<div class="section">
+  <div class="title">Как начать играть?</div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Лаунчер</h3>
+      <p>С модами, голосовым чатом и автообновлением</p>
+    </div>
+
+    <div class="card">
+      <h3>Свой Minecraft</h3>
+      <p>IP: mc.atlantworld.com<br>Версия: 1.20.1+</p>
+    </div>
+
+  </div>
 </div>
 
 </body>
