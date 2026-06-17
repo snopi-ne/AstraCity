@@ -1,76 +1,191 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AstraCity RP</title>
+<title>AstraCity Roleplay</title>
 
 <style>
-body {
+* {
   margin: 0;
-  font-family: Arial;
-  background: linear-gradient(135deg, #0a0014, #1a0033);
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #1a0033, #000);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* анимированный фон */
+.background-glow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(138,43,226,0.2), transparent 60%);
+  animation: pulse 6s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* header */
 header {
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
-  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .logo {
-  color:#b266ff;
-  font-size:22px;
-  font-weight:bold;
+  font-size: 22px;
+  font-weight: bold;
+  color: #c77dff;
+  letter-spacing: 1px;
 }
 
-button {
-  background:#8a2be2;
-  border:none;
-  color:white;
-  padding:10px 15px;
-  border-radius:10px;
+/* кнопки меню */
+.nav button {
+  background: transparent;
+  border: 1px solid #c77dff;
+  color: white;
+  padding: 8px 14px;
+  margin-left: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+.nav button:hover {
+  background: #c77dff;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #c77dff;
+}
+
+/* главный экран */
 .hero {
-  text-align:center;
-  padding:100px 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size:45px;
-  color:#d9b3ff;
+  font-size: 70px;
+  background: linear-gradient(90deg, #a64dff, #e0aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 1.5s ease;
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: fadeUp 2s ease;
+}
+
+/* кнопка */
+.play-btn {
+  margin-top: 25px;
+  padding: 15px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(90deg, #7b2cbf, #c77dff);
+  transition: 0.3s;
+  animation: fadeUp 2.5s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px #c77dff;
+}
+
+/* карточки */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-bottom: 100px;
 }
 
 .card {
-  margin:20px;
-  padding:20px;
-  background:rgba(255,255,255,0.05);
-  border-radius:10px;
+  width: 260px;
+  margin: 15px;
+  padding: 25px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(199,125,255,0.3);
+  border-radius: 15px;
+  transition: 0.4s;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: #c77dff;
+  box-shadow: 0 0 20px rgba(199,125,255,0.4);
+}
+
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 </style>
 </head>
 
 <body>
 
+<div class="background-glow"></div>
+
 <header>
   <div class="logo">AstraCity</div>
-  <div>
+
+  <div class="nav">
+    <button>Home</button>
+    <button>Rules</button>
     <button>Discord</button>
-    <button>Вход</button>
   </div>
 </header>
 
-<div class="hero">
-  <h1>Добро пожаловать в AstraCity</h1>
-  <p>RP сервер нового уровня</p>
-</div>
+<section class="hero">
+  <h1>ROLEPLAY</h1>
+  <p>Welcome to the next generation of RP experience</p>
+  <button class="play-btn">Play Now</button>
+</section>
 
-<div class="card">Полиция</div>
-<div class="card">Медицина</div>
-<div class="card">Бизнес</div>
+<section class="cards">
+  <div class="card">
+    <h3>Police</h3>
+    <p>Keep the city under control</p>
+  </div>
+
+  <div class="card">
+    <h3>Medical</h3>
+    <p>Save lives and help players</p>
+  </div>
+
+  <div class="card">
+    <h3>Business</h3>
+    <p>Build your empire</p>
+  </div>
+</section>
 
 </body>
 </html>
