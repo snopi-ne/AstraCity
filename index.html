@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AstraCity Roleplay</title>
+<title>AstraCity RolePlay</title>
 
 <style>
 * {
@@ -13,179 +13,138 @@
 }
 
 body {
+  overflow: hidden;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #1a0033, #000);
+  background: black;
   color: white;
-  overflow-x: hidden;
 }
 
-/* анимированный фон */
-.background-glow {
+/* 🌆 фон города */
+.bg {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(138,43,226,0.2), transparent 60%);
-  animation: pulse 6s infinite;
+  background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d") center/cover no-repeat;
+  filter: brightness(0.3) contrast(1.2);
+  z-index: -2;
+}
+
+/* 🌌 затемнение */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.4), rgba(10,0,20,0.95));
   z-index: -1;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.6; }
+/* ✨ частицы */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: move 10s linear infinite;
 }
 
-/* header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.4);
-  position: fixed;
-  width: 100%;
-  top: 0;
+@keyframes move {
+  from { transform: translateY(100vh); opacity: 0; }
+  to { transform: translateY(-10vh); opacity: 1; }
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #c77dff;
-  letter-spacing: 1px;
-}
-
-/* кнопки меню */
-.nav button {
-  background: transparent;
-  border: 1px solid #c77dff;
-  color: white;
-  padding: 8px 14px;
-  margin-left: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav button:hover {
-  background: #c77dff;
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #c77dff;
-}
-
-/* главный экран */
-.hero {
+/* 🧠 центр */
+.container {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
 }
 
-.hero h1 {
-  font-size: 70px;
-  background: linear-gradient(90deg, #a64dff, #e0aaff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: fadeUp 1.5s ease;
+/* ✍️ graffiti стиль */
+.title {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fade 2s ease;
+  text-shadow:
+    0 0 10px #b266ff,
+    0 0 20px #7a2cff;
 }
 
-.hero p {
-  margin-top: 15px;
+/* ROLEPLAY */
+.roleplay {
+  font-size: 40px;
+  color: #b266ff;
+  margin-top: 10px;
+  letter-spacing: 5px;
+  animation: fade 2.5s ease;
+}
+
+/* сервер */
+.subtitle {
+  margin-top: 10px;
   font-size: 18px;
   opacity: 0.8;
-  animation: fadeUp 2s ease;
+  animation: fade 3s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* кнопка */
-.play-btn {
+.btn {
   margin-top: 25px;
-  padding: 15px 35px;
-  font-size: 18px;
+  padding: 14px 30px;
+  background: linear-gradient(90deg, #6a0dad, #b266ff);
   border: none;
+  color: white;
+  font-size: 18px;
   border-radius: 12px;
   cursor: pointer;
-  color: white;
-  background: linear-gradient(90deg, #7b2cbf, #c77dff);
   transition: 0.3s;
-  animation: fadeUp 2.5s ease;
+  animation: fade 3.5s ease;
 }
 
-.play-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 25px #c77dff;
-}
-
-/* карточки */
-.cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  padding-bottom: 100px;
-}
-
-.card {
-  width: 260px;
-  margin: 15px;
-  padding: 25px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(199,125,255,0.3);
-  border-radius: 15px;
-  transition: 0.4s;
-  backdrop-filter: blur(10px);
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.05);
-  border-color: #c77dff;
-  box-shadow: 0 0 20px rgba(199,125,255,0.4);
-}
-
-@keyframes fadeUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #b266ff;
 }
 </style>
 </head>
 
 <body>
 
-<div class="background-glow"></div>
+<div class="bg"></div>
+<div class="overlay"></div>
 
-<header>
-  <div class="logo">AstraCity</div>
+<script>
+/* ✨ создаём частицы */
+for (let i = 0; i < 40; i++) {
+  let p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (5 + Math.random() * 10) + "s";
+  document.body.appendChild(p);
+}
+</script>
 
-  <div class="nav">
-    <button>Home</button>
-    <button>Rules</button>
-    <button>Discord</button>
-  </div>
-</header>
+<div class="container">
 
-<section class="hero">
-  <h1>ROLEPLAY</h1>
-  <p>Welcome to the next generation of RP experience</p>
-  <button class="play-btn">Play Now</button>
-</section>
+  <div class="title">САМЫЙ ЛЕГЕНДАРНЫЙ</div>
+  <div class="roleplay">ROLEPLAY</div>
+  <div class="subtitle">СЕРВЕР В MINECRAFT</div>
 
-<section class="cards">
-  <div class="card">
-    <h3>Police</h3>
-    <p>Keep the city under control</p>
-  </div>
+  <button class="btn">ENTER WORLD</button>
 
-  <div class="card">
-    <h3>Medical</h3>
-    <p>Save lives and help players</p>
-  </div>
-
-  <div class="card">
-    <h3>Business</h3>
-    <p>Build your empire</p>
-  </div>
-</section>
+</div>
 
 </body>
 </html>
