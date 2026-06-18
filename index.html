@@ -26,10 +26,10 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-z-index:1000;
-backdrop-filter:blur(15px);
-background:rgba(10,5,20,.7);
-border-bottom:1px solid rgba(178,102,255,.2);
+z-index:999;
+background:rgba(10,10,20,.6);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
@@ -42,109 +42,149 @@ align-items:center;
 }
 
 .logo{
-font-size:30px;
+font-size:32px;
 font-weight:900;
-color:#c58cff;
+color:#d2a4ff;
 text-shadow:0 0 20px #b266ff;
 }
 
 .menu{
 display:flex;
-gap:15px;
-overflow:auto;
+gap:10px;
 }
 
 .menu a{
-color:white;
 text-decoration:none;
-padding:10px 16px;
+color:white;
+padding:12px 18px;
 border-radius:12px;
 background:rgba(255,255,255,.05);
+transition:.3s;
+}
+
+.menu a:hover{
+background:#b266ff;
 }
 
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:120px 20px;
+padding:20px;
 background:
-linear-gradient(rgba(8,5,17,.8),rgba(8,5,17,.9)),
+linear-gradient(rgba(8,5,17,.75),rgba(8,5,17,.9)),
 url('https://images.unsplash.com/photo-1519501025264-65ba15a82390');
 background-size:cover;
 background-position:center;
 }
 
 .hero-content{
-max-width:900px;
+max-width:1000px;
 }
 
-.top-text{
-font-size:28px;
-font-weight:700;
-letter-spacing:4px;
+.legend{
+font-size:22px;
+letter-spacing:8px;
+font-weight:800;
+animation:fadeUp 1s ease;
 }
 
 .roleplay{
-font-size:110px;
+font-size:120px;
 font-weight:900;
-margin:15px 0;
+line-height:1;
+
 background:linear-gradient(
 90deg,
 #ffffff,
-#d4a5ff,
+#e6c8ff,
 #b266ff,
 #ffffff
 );
-background-size:300% 300%;
+
+background-size:400% 400%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:shine 6s infinite;
+
+animation:
+gradientMove 6s infinite,
+glowPulse 3s infinite;
 }
 
-.bottom-text{
+.minecraft{
 font-size:34px;
-font-weight:700;
+letter-spacing:5px;
+margin-top:10px;
 }
 
 .description{
 margin-top:35px;
 font-size:22px;
 line-height:1.8;
-color:#d8d8d8;
-}
-
-.buttons{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+color:#d7d7d7;
+max-width:850px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .btn{
-padding:18px 40px;
-border-radius:18px;
+display:inline-block;
+margin-top:35px;
+padding:20px 45px;
+border-radius:20px;
 text-decoration:none;
-font-weight:bold;
 color:white;
-background:linear-gradient(90deg,#6a0dad,#b266ff);
-box-shadow:0 0 30px rgba(178,102,255,.5);
+font-size:22px;
+font-weight:bold;
+background:linear-gradient(
+90deg,
+#6a0dad,
+#b266ff
+);
+
+box-shadow:
+0 0 25px #b266ff,
+0 0 60px rgba(178,102,255,.4);
 }
 
-.online-box{
-margin-top:50px;
+.online{
+margin-top:40px;
 padding:25px;
 border-radius:20px;
 background:rgba(255,255,255,.05);
 border:1px solid rgba(178,102,255,.2);
+backdrop-filter:blur(15px);
 }
 
-@keyframes shine{
+@keyframes gradientMove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
+}
+
+@keyframes glowPulse{
+0%{
+filter:drop-shadow(0 0 20px #b266ff);
+}
+50%{
+filter:drop-shadow(0 0 50px #d4a5ff);
+}
+100%{
+filter:drop-shadow(0 0 20px #b266ff);
+}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 </style>
@@ -154,6 +194,7 @@ border:1px solid rgba(178,102,255,.2);
 <body>
 
 <header>
+
 <div class="nav">
 
 <div class="logo">
@@ -167,21 +208,22 @@ ASTRACITY
 </div>
 
 </div>
+
 </header>
 
 <section class="hero">
 
 <div class="hero-content">
 
-<div class="top-text">
+<div class="legend">
 САМЫЙ ЛЕГЕНДАРНЫЙ
 </div>
 
 <div class="roleplay">
-RolePlay
+ROLEPLAY
 </div>
 
-<div class="bottom-text">
+<div class="minecraft">
 СЕРВЕР В MINECRAFT
 </div>
 
@@ -192,13 +234,11 @@ RolePlay
 и создаёшь собственную историю.
 </div>
 
-<div class="buttons">
 <a href="store.html" class="btn">
 💜 Купить донат
 </a>
-</div>
 
-<div class="online-box">
+<div class="online">
 <h2>🟢 СЕРВЕР ОНЛАЙН</h2>
 <p>IP появится после запуска проекта</p>
 </div>
@@ -206,3 +246,400 @@ RolePlay
 </div>
 
 </section>
+<section style="padding:120px 20px;">
+
+<h2 style="
+text-align:center;
+font-size:60px;
+margin-bottom:20px;
+color:#d4a5ff;
+">
+КЕМ СТАНЕШЬ ТЫ?
+</h2>
+
+<p style="
+text-align:center;
+max-width:900px;
+margin:auto;
+font-size:22px;
+color:#d7d7d7;
+line-height:1.8;
+">
+Выбирай любую профессию и создавай собственную историю
+в мире AstraCity.
+</p>
+
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:60px;
+max-width:1400px;
+margin-left:auto;
+margin-right:auto;
+">
+
+<div class="job-card">
+👮‍♂️
+<h3>Полицейский</h3>
+<p>Следи за порядком в городе.</p>
+</div>
+
+<div class="job-card">
+🚑
+<h3>Медик</h3>
+<p>Спасай жизни игроков.</p>
+</div>
+
+<div class="job-card">
+💼
+<h3>Бизнесмен</h3>
+<p>Создай собственную империю.</p>
+</div>
+
+<div class="job-card">
+🚕
+<h3>Таксист</h3>
+<p>Перевози жителей города.</p>
+</div>
+
+<div class="job-card">
+🏛️
+<h3>Чиновник</h3>
+<p>Управляй жизнью города.</p>
+</div>
+
+<div class="job-card">
+😈
+<h3>Бандит</h3>
+<p>Выбирай путь преступного мира.</p>
+</div>
+
+</div>
+
+</section>
+
+<section style="
+padding:120px 20px;
+background:rgba(255,255,255,.03);
+">
+
+<h2 style="
+text-align:center;
+font-size:60px;
+color:#d4a5ff;
+margin-bottom:25px;
+">
+НАШ DISCORD
+</h2>
+
+<p style="
+text-align:center;
+max-width:900px;
+margin:auto;
+font-size:22px;
+line-height:1.8;
+color:#d7d7d7;
+">
+Общайся с игроками, следи за новостями
+и участвуй в жизни проекта.
+</p>
+
+<div style="text-align:center;margin-top:40px;">
+
+<a href="https://discord.gg/zVWzNKr5D"
+style="
+display:inline-block;
+padding:22px 60px;
+font-size:24px;
+font-weight:bold;
+color:white;
+text-decoration:none;
+border-radius:20px;
+background:#5865F2;
+box-shadow:0 0 40px rgba(88,101,242,.5);
+">
+💬 Вступить в Discord </a>
+
+</div>
+
+</section>
+
+<style>
+
+.job-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(178,102,255,.2);
+border-radius:25px;
+padding:35px;
+text-align:center;
+font-size:28px;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+
+.job-card h3{
+margin-top:15px;
+font-size:28px;
+}
+
+.job-card p{
+margin-top:10px;
+font-size:18px;
+color:#cfcfcf;
+}
+
+.job-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(178,102,255,.4);
+}
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+pointer-events:none;
+}
+
+</style>
+
+<script>
+
+for(let i=0;i<150;i++){
+
+let star=document.createElement("div");
+
+star.classList.add("star");
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.opacity=Math.random();
+
+star.style.animation=
+`pulse ${Math.random()*5+2}s infinite`;
+
+document.body.appendChild(star);
+
+}
+
+let style=document.createElement("style");
+
+style.innerHTML=`
+
+@keyframes pulse{
+
+0%{
+opacity:.2;
+transform:scale(1);
+}
+
+50%{
+opacity:1;
+transform:scale(2);
+}
+
+100%{
+opacity:.2;
+transform:scale(1);
+}
+
+}
+
+`;
+
+document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>
+<section style="
+padding:120px 20px;
+">
+
+<h2 style="
+text-align:center;
+font-size:60px;
+color:#d4a5ff;
+margin-bottom:25px;
+">
+ПОЧЕМУ ASTRACITY?
+</h2>
+
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+max-width:1400px;
+margin:auto;
+margin-top:60px;
+">
+
+<div class="feature-card">
+⚡
+<h3>Уникальный RP</h3>
+<p>Свобода выбора профессий и развития персонажа.</p>
+</div>
+
+<div class="feature-card">
+🚗
+<h3>Сотни машин</h3>
+<p>От обычных автомобилей до суперкаров.</p>
+</div>
+
+<div class="feature-card">
+🏝️
+<h3>Недвижимость</h3>
+<p>Особняки, пентхаусы и личные острова.</p>
+</div>
+
+<div class="feature-card">
+🎟️
+<h3>AstraPass</h3>
+<p>Сезонные награды и уникальные предметы.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta-section">
+
+<h2>
+ГОТОВ НАЧАТЬ ИСТОРИЮ?
+</h2>
+
+<p>
+Присоединяйся к AstraCity и стань частью легендарного RolePlay проекта.
+</p>
+
+<div class="cta-buttons">
+
+<a href="store.html" class="big-btn">
+💜 Купить донат
+</a>
+
+<a href="https://discord.gg/zVWzNKr5D" class="discord-btn">
+💬 Discord
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-logo">
+ASTRACITY
+</div>
+
+<p>
+© 2026 AstraCity RolePlay. Все права защищены.
+</p>
+
+</footer>
+
+<style>
+
+.feature-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(178,102,255,.2);
+border-radius:30px;
+padding:40px;
+text-align:center;
+font-size:40px;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+
+.feature-card h3{
+font-size:30px;
+margin-top:15px;
+}
+
+.feature-card p{
+font-size:18px;
+margin-top:10px;
+color:#d6d6d6;
+}
+
+.feature-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 40px rgba(178,102,255,.4);
+}
+
+.cta-section{
+padding:120px 20px;
+text-align:center;
+background:
+linear-gradient(
+90deg,
+rgba(106,13,173,.2),
+rgba(178,102,255,.2)
+);
+}
+
+.cta-section h2{
+font-size:70px;
+margin-bottom:20px;
+}
+
+.cta-section p{
+font-size:24px;
+color:#d8d8d8;
+max-width:900px;
+margin:auto;
+}
+
+.cta-buttons{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.big-btn{
+padding:22px 55px;
+font-size:24px;
+font-weight:bold;
+border-radius:20px;
+text-decoration:none;
+color:white;
+background:linear-gradient(
+90deg,
+#6a0dad,
+#b266ff
+);
+box-shadow:0 0 40px rgba(178,102,255,.5);
+}
+
+.discord-btn{
+padding:22px 55px;
+font-size:24px;
+font-weight:bold;
+border-radius:20px;
+text-decoration:none;
+color:white;
+background:#5865F2;
+box-shadow:0 0 40px rgba(88,101,242,.5);
+}
+
+footer{
+padding:60px 20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-logo{
+font-size:40px;
+font-weight:900;
+color:#d4a5ff;
+margin-bottom:15px;
+text-shadow:0 0 25px #b266ff;
+}
+
+</style>
