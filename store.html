@@ -11,101 +11,133 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#080511;
+background:#07040f;
 color:white;
 overflow-x:hidden;
 }
 
-/* фон */
+/* Падающие звезды */
+.star{
+position:fixed;
+width:2px;
+height:80px;
+background:linear-gradient(transparent,#fff);
+opacity:.7;
+transform:rotate(45deg);
+pointer-events:none;
+}
+
 .hero{
 min-height:100vh;
-padding:40px 20px;
+padding:30px;
 background:
-linear-gradient(rgba(8,5,17,.8),rgba(8,5,17,.9)),
+linear-gradient(rgba(8,5,17,.88),rgba(8,5,17,.95)),
 url('https://images.unsplash.com/photo-1514565131-fce0801e5785');
 background-size:cover;
 background-position:center;
 }
 
-/* логотип */
 .logo{
 text-align:center;
-font-size:42px;
+font-size:54px;
 font-weight:bold;
-color:#c58cff;
-text-shadow:0 0 20px #b266ff;
+color:#d39cff;
+text-shadow:0 0 25px #b266ff;
 }
 
 .subtitle{
 text-align:center;
-opacity:.8;
 margin-top:10px;
+opacity:.8;
+}
+
+.server{
+margin:20px auto;
+max-width:700px;
+padding:15px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(178,102,255,.3);
+border-radius:16px;
+text-align:center;
+backdrop-filter:blur(10px);
 }
 
 .nickname{
-max-width:500px;
-margin:30px auto;
+max-width:700px;
+margin:20px auto;
 }
 
 .nickname input{
 width:100%;
-padding:15px;
+padding:16px;
 border:none;
-border-radius:12px;
-background:#1a1028;
+border-radius:14px;
+background:#1b1230;
 color:white;
+font-size:16px;
 }
 
-/* меню */
 .menu{
 display:flex;
 gap:10px;
 overflow-x:auto;
-padding:15px 0;
-margin-top:20px;
+margin-top:25px;
+padding-bottom:10px;
 }
 
-.menu button{
-border:none;
+.menu a{
+text-decoration:none;
+color:white;
+background:#241539;
 padding:12px 18px;
 border-radius:12px;
-background:#241539;
-color:white;
 white-space:nowrap;
 }
 
-.menu button:hover{
+.menu a:hover{
 background:#b266ff;
-cursor:pointer;
 }
 
-/* карточки */
+.section{
+padding:70px 20px;
+}
+
+.title{
+font-size:32px;
+margin-bottom:25px;
+text-align:center;
+color:#d39cff;
+}
+
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-margin-top:30px;
+max-width:1400px;
+margin:auto;
 }
 
 .card{
 background:rgba(255,255,255,.05);
-border:1px solid rgba(178,102,255,.3);
 border-radius:20px;
 padding:20px;
+border:1px solid rgba(178,102,255,.3);
 backdrop-filter:blur(10px);
+transition:.3s;
 }
 
-.card h3{
-margin-bottom:10px;
+.card:hover{
+transform:translateY(-8px);
 }
 
 .price{
 font-size:28px;
-color:#d7a7ff;
 margin:15px 0;
+color:#e0b3ff;
 }
 
 .buy{
@@ -116,6 +148,7 @@ border-radius:12px;
 background:linear-gradient(90deg,#6a0dad,#b266ff);
 color:white;
 font-weight:bold;
+cursor:pointer;
 }
 </style>
 </head>
@@ -127,7 +160,12 @@ font-weight:bold;
 <div class="logo">ASTRACITY STORE</div>
 
 <div class="subtitle">
-Официальный магазин сервера
+Официальный магазин проекта AstraCity
+</div>
+
+<div class="server">
+<h3>🚀 Скоро открытие</h3>
+<p>IP сервера появится после запуска проекта</p>
 </div>
 
 <div class="nickname">
@@ -135,41 +173,391 @@ font-weight:bold;
 </div>
 
 <div class="menu">
-<button>👑 Привилегии</button>
-<button>🚗 Машины</button>
-<button>🎟 AstraPass</button>
-<button>⚖️ Амнистия</button>
-<button>💰 Валюта</button>
-<button>🎁 Кейсы</button>
-<button>🏝 Недвижимость</button>
+<a href="#priv">👑 Привилегии</a>
+<a href="#cars">🚗 Машины</a>
+<a href="#pass">🎟 AstraPass</a>
+<a href="#amnesty">⚖ Амнистия</a>
+<a href="#money">💰 Валюта</a>
+<a href="#cases">🎁 Кейсы</a>
+<a href="#estate">🏝 Недвижимость</a>
 </div>
+<!-- ПРИВИЛЕГИИ -->
+
+<section class="section" id="priv">
+
+<h2 class="title">👑 Привилегии</h2>
 
 <div class="cards">
 
 <div class="card">
 <h3>🥉 Bronze</h3>
-<p>Стартовая привилегия</p>
+<p>Начальная привилегия</p>
 <div class="price">79 ₽</div>
 <button class="buy">Купить</button>
 </div>
 
 <div class="card">
 <h3>🥈 Silver</h3>
-<p>Улучшенная привилегия</p>
+<p>Дополнительные возможности</p>
 <div class="price">149 ₽</div>
 <button class="buy">Купить</button>
 </div>
 
 <div class="card">
 <h3>🥇 Gold</h3>
-<p>Популярный выбор</p>
+<p>Популярный выбор игроков</p>
 <div class="price">299 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>💎 Diamond</h3>
+<p>Редкие преимущества</p>
+<div class="price">499 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>👑 Platinum</h3>
+<p>Премиальный статус</p>
+<div class="price">799 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🔥 Master</h3>
+<p>Мощные возможности</p>
+<div class="price">1199 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>⚡ Supreme</h3>
+<p>Неоновая привилегия</p>
+<div class="price">1999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🐉 Dragon</h3>
+<p>Легендарный статус</p>
+<div class="price">2999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>⭐ Sponsor</h3>
+<p>Поддержка проекта</p>
+<div class="price">4999 ₽</div>
 <button class="buy">Купить</button>
 </div>
 
 </div>
 
+</section>
+
+<!-- МАШИНЫ -->
+
+<section class="section" id="cars">
+
+<h2 class="title">🚗 Машины</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>BMW M5 F90</h3>
+<div class="price">499 ₽</div>
+<button class="buy">Купить</button>
 </div>
+
+<div class="card">
+<h3>Mercedes E63</h3>
+<div class="price">599 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Audi RS6</h3>
+<div class="price">699 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>G63 AMG</h3>
+<div class="price">899 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Lamborghini Huracan</h3>
+<div class="price">1299 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Ferrari 488</h3>
+<div class="price">1499 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Rolls-Royce Cullinan</h3>
+<div class="price">1999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
+
+</section>
+<!-- ASTRAPASS -->
+
+<section class="section" id="pass">
+
+<h2 class="title">🎟 AstraPass</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>+10 уровней</h3>
+<div class="price">99 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>+25 уровней</h3>
+<div class="price">199 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>+50 уровней</h3>
+<div class="price">349 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>+100 уровней</h3>
+<div class="price">599 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- АМНИСТИЯ -->
+
+<section class="section" id="amnesty">
+
+<h2 class="title">⚖ Амнистия</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Разбан</h3>
+<div class="price">299 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Снятие мута</h3>
+<div class="price">99 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Снятие варна</h3>
+<div class="price">149 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Снятие ЧС проекта</h3>
+<div class="price">499 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ВАЛЮТА -->
+
+<section class="section" id="money">
+
+<h2 class="title">💰 Валюта</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>100 000$</h3>
+<div class="price">49 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>500 000$</h3>
+<div class="price">199 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>1 000 000$</h3>
+<div class="price">349 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>5 000 000$</h3>
+<div class="price">1499 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>10 000 000$</h3>
+<div class="price">2499 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- КЕЙСЫ -->
+
+<section class="section" id="cases">
+
+<h2 class="title">🎁 Кейсы</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Обычный кейс</h3>
+<div class="price">49 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Редкий кейс</h3>
+<div class="price">99 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Эпический кейс</h3>
+<div class="price">199 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>Легендарный кейс</h3>
+<div class="price">399 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- НЕДВИЖИМОСТЬ -->
+
+<section class="section" id="estate">
+
+<h2 class="title">🏝 Недвижимость</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🏠 Особняк</h3>
+<div class="price">2999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🏢 Пентхаус</h3>
+<div class="price">1999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🏝 Личный остров</h3>
+<div class="price">4999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🚁 VIP Остров</h3>
+<div class="price">9999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>👑 Astra Island Ultimate</h3>
+<div class="price">14999 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<footer style="padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.1);">
+
+<h2>ASTRACITY STORE</h2>
+
+<p style="margin:15px 0;">
+Скоро открытие проекта
+</p>
+
+<a href="https://discord.gg/zVWzNKr5D"
+style="
+display:inline-block;
+padding:14px 30px;
+border-radius:14px;
+background:#5865F2;
+color:white;
+text-decoration:none;
+font-weight:bold;
+">
+💬 Discord
+</a>
+
+</footer>
+
+<script>
+for(let i=0;i<40;i++){
+let star=document.createElement('div');
+star.classList.add('star');
+
+star.style.left=Math.random()*100+'vw';
+star.style.top=Math.random()*100+'vh';
+
+star.style.animation=
+`fall ${Math.random()*4+3}s linear infinite`;
+
+document.body.appendChild(star);
+}
+
+const style=document.createElement('style');
+
+style.innerHTML=`
+@keyframes fall{
+0%{
+transform:translateY(-100px) translateX(0) rotate(45deg);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(120vh) translateX(300px) rotate(45deg);
+opacity:0;
+}
+}
+`;
+
+document.head.appendChild(style);
+</script>
 
 </body>
 </html>
