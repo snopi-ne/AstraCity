@@ -6,20 +6,15 @@
 <title>ASTRO CITY RP</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
 body{
-background:#070010;
+background:#0a0015;
+overflow:hidden;
 color:white;
-overflow-x:hidden;
 }
 
-/* ===== PARTICLES ===== */
+/* canvas particles */
 canvas{
 position:fixed;
 top:0;
@@ -27,143 +22,62 @@ left:0;
 z-index:0;
 }
 
-/* ===== HERO ===== */
+/* центр */
 .hero{
 position:relative;
-z-index:1;
-min-height:100vh;
+z-index:2;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px 20px;
-background:radial-gradient(circle at top,#1a0033,#070010);
+padding:20px;
 }
 
-.logo{
-font-size:52px;
-font-weight:bold;
+/* текст */
+h1{
+font-size:60px;
 color:#c084ff;
 text-shadow:0 0 25px #a855f7;
-letter-spacing:3px;
+animation:fade 1.2s ease;
 }
 
-.subtitle{
-margin-top:10px;
-opacity:.8;
-font-size:16px;
+p{
 max-width:600px;
+opacity:.8;
+margin-top:10px;
+animation:fade 1.6s ease;
 }
 
-.ip{
-margin-top:20px;
-padding:12px 20px;
-border:1px solid rgba(168,85,247,.4);
-border-radius:14px;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
-}
-
-.btn{
-margin-top:20px;
-padding:12px 25px;
-border:none;
-border-radius:14px;
-background:#a855f7;
-color:white;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #a855f7;
-}
-
-/* ===== MENU ===== */
-.menu{
-position:relative;
-z-index:1;
+/* кнопки */
+.buttons{
+margin-top:25px;
 display:flex;
-gap:10px;
-justify-content:center;
+gap:15px;
 flex-wrap:wrap;
-margin:25px 10px;
+justify-content:center;
 }
 
-.menu a{
+a{
 text-decoration:none;
-color:white;
-padding:10px 16px;
+padding:12px 20px;
 border-radius:12px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(168,85,247,.3);
-transition:.3s;
-font-size:14px;
-}
-
-.menu a:hover{
 background:#a855f7;
-}
-
-/* ===== STORE ===== */
-.section{
-padding:70px 20px;
-position:relative;
-z-index:1;
-}
-
-.title{
-text-align:center;
-font-size:30px;
-color:#c084ff;
-margin-bottom:30px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(168,85,247,.3);
-border-radius:18px;
-padding:18px;
-backdrop-filter:blur(10px);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.price{
-margin:12px 0;
-font-size:24px;
-color:#d8b4fe;
-}
-
-.buy{
-width:100%;
-padding:10px;
-border:none;
-border-radius:12px;
-background:linear-gradient(90deg,#7c3aed,#a855f7);
 color:white;
 font-weight:bold;
-cursor:pointer;
+transition:.3s;
+box-shadow:0 0 10px #a855f7;
 }
 
-/* mobile */
-@media(max-width:600px){
-.logo{font-size:32px;}
-.subtitle{font-size:13px;}
+a:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #a855f7;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
@@ -173,83 +87,28 @@ cursor:pointer;
 <canvas id="p"></canvas>
 
 <div class="hero">
-  <div class="logo">ASTRO CITY</div>
-  <div class="subtitle">
-    Самый легендарный RolePlay сервер в Minecraft.  
-    Создай свою историю: полиция, мафия, бизнес, политика — всё возможно.
+  <h1>ASTRO CITY</h1>
+  <p>Легендарный RolePlay сервер Minecraft. Полиция, мафия, бизнес — твоя история.</p>
+
+  <div class="buttons">
+    <a href="store.html">💸 Купить донат</a>
+    <a href="#ip">📡 IP сервера</a>
   </div>
 
-  <div class="ip">mc.atlantworld.com</div>
-
-  <button class="btn">Войти на сервер</button>
+  <p id="ip">mc.atlantworld.com</p>
 </div>
-
-<div class="menu">
-  <a href="#priv">Привилегии</a>
-  <a href="#cars">Машины</a>
-  <a href="#pass">AstraPass</a>
-  <a href="#money">Валюта</a>
-  <a href="#cases">Кейсы</a>
-  <a href="#estate">Недвижимость</a>
-</div>
-
-<!-- ТВОЙ МАГАЗИН -->
-<!-- (я оставил структуру, чтобы не ломать) -->
-
-<section class="section" id="priv">
-<h2 class="title">👑 Привилегии</h2>
-<div class="cards">
-<div class="card"><h3>Bronze</h3><div class="price">79 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Silver</h3><div class="price">149 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Gold</h3><div class="price">299 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Diamond</h3><div class="price">499 ₽</div><button class="buy">Купить</button></div>
-</div>
-</section>
-
-<section class="section" id="cars">
-<h2 class="title">🚗 Машины</h2>
-<div class="cards">
-<div class="card"><h3>BMW M5</h3><div class="price">499 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Mercedes</h3><div class="price">599 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Lamborghini</h3><div class="price">1299 ₽</div><button class="buy">Купить</button></div>
-</div>
-</section>
-
-<section class="section" id="money">
-<h2 class="title">💰 Валюта</h2>
-<div class="cards">
-<div class="card"><h3>100K$</h3><div class="price">49 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>1M$</h3><div class="price">349 ₽</div><button class="buy">Купить</button></div>
-</div>
-</section>
-
-<section class="section" id="cases">
-<h2 class="title">🎁 Кейсы</h2>
-<div class="cards">
-<div class="card"><h3>Обычный</h3><div class="price">49 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Легендарный</h3><div class="price">399 ₽</div><button class="buy">Купить</button></div>
-</div>
-</section>
-
-<section class="section" id="estate">
-<h2 class="title">🏝 Недвижимость</h2>
-<div class="cards">
-<div class="card"><h3>Особняк</h3><div class="price">2999 ₽</div><button class="buy">Купить</button></div>
-<div class="card"><h3>Остров</h3><div class="price">4999 ₽</div><button class="buy">Купить</button></div>
-</div>
-</section>
 
 <script>
-/* particles */
+// particles
 const c=document.getElementById("p");
-const x=c.getContext("2d");
+const ctx=c.getContext("2d");
 c.width=innerWidth;
 c.height=innerHeight;
 
-let arr=[];
+let p=[];
 
-for(let i=0;i<60;i++){
-arr.push({
+for(let i=0;i<80;i++){
+p.push({
 x:Math.random()*c.width,
 y:Math.random()*c.height,
 r:Math.random()*2,
@@ -258,27 +117,26 @@ dy:(Math.random()-0.5)
 });
 }
 
-function draw(){
-x.clearRect(0,0,c.width,c.height);
+function anim(){
+ctx.clearRect(0,0,c.width,c.height);
 
-for(let i=0;i<arr.length;i++){
-let p=arr[i];
+for(let i=0;i<p.length;i++){
+let s=p[i];
+s.x+=s.dx;
+s.y+=s.dy;
 
-p.x+=p.dx;
-p.y+=p.dy;
+if(s.x<0)s.x=c.width;
+if(s.y<0)s.y=c.height;
 
-if(p.x<0)p.x=c.width;
-if(p.y<0)p.y=c.height;
-
-x.fillStyle="#a855f7";
-x.beginPath();
-x.arc(p.x,p.y,p.r,0,Math.PI*2);
-x.fill();
+ctx.fillStyle="#a855f7";
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
 }
 
-requestAnimationFrame(draw);
+requestAnimationFrame(anim);
 }
-draw();
+anim();
 </script>
 
 </body>
