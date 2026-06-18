@@ -6,107 +6,168 @@
 <title>AstraCity Store</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#0b0614;
-    color:white;
+background:#080511;
+color:white;
+overflow-x:hidden;
 }
 
-header{
-    text-align:center;
-    padding:40px 20px;
-    background:linear-gradient(90deg,#6a0dad,#b266ff);
+/* фон */
+.hero{
+min-height:100vh;
+padding:40px 20px;
+background:
+linear-gradient(rgba(8,5,17,.8),rgba(8,5,17,.9)),
+url('https://images.unsplash.com/photo-1514565131-fce0801e5785');
+background-size:cover;
+background-position:center;
 }
 
-h1{
-    margin:0;
-    font-size:40px;
+/* логотип */
+.logo{
+text-align:center;
+font-size:42px;
+font-weight:bold;
+color:#c58cff;
+text-shadow:0 0 20px #b266ff;
 }
 
-.back{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 24px;
-    background:white;
-    color:#6a0dad;
-    text-decoration:none;
-    border-radius:12px;
-    font-weight:bold;
+.subtitle{
+text-align:center;
+opacity:.8;
+margin-top:10px;
 }
 
-.products{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    padding:40px 20px;
+.nickname{
+max-width:500px;
+margin:30px auto;
+}
+
+.nickname input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#1a1028;
+color:white;
+}
+
+/* меню */
+.menu{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:15px 0;
+margin-top:20px;
+}
+
+.menu button{
+border:none;
+padding:12px 18px;
+border-radius:12px;
+background:#241539;
+color:white;
+white-space:nowrap;
+}
+
+.menu button:hover{
+background:#b266ff;
+cursor:pointer;
+}
+
+/* карточки */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
 }
 
 .card{
-    width:280px;
-    background:#151020;
-    border:1px solid #8d4dff;
-    border-radius:20px;
-    padding:20px;
-    text-align:center;
-    transition:.3s;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(178,102,255,.3);
+border-radius:20px;
+padding:20px;
+backdrop-filter:blur(10px);
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 20px rgba(178,102,255,.5);
+.card h3{
+margin-bottom:10px;
 }
 
 .price{
-    font-size:32px;
-    color:#c792ff;
-    margin:15px 0;
+font-size:28px;
+color:#d7a7ff;
+margin:15px 0;
 }
 
 .buy{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:#8d4dff;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#6a0dad,#b266ff);
+color:white;
+font-weight:bold;
 }
 </style>
 </head>
+
 <body>
 
-<header>
-    <h1>💎 AstraCity Store</h1>
-    <p>Официальный магазин сервера</p>
+<div class="hero">
 
-    <a href="index.html" class="back">⬅ На главную</a>
-</header>
+<div class="logo">ASTRACITY STORE</div>
 
-<div class="products">
+<div class="subtitle">
+Официальный магазин сервера
+</div>
 
-    <div class="card">
-        <h2>VIP</h2>
-        <div class="price">99 ₽</div>
-        <p>Базовая привилегия</p>
-        <button class="buy">Купить</button>
-    </div>
+<div class="nickname">
+<input placeholder="Введите никнейм">
+</div>
 
-    <div class="card">
-        <h2>PREMIUM</h2>
-        <div class="price">299 ₽</div>
-        <p>Расширенные возможности</p>
-        <button class="buy">Купить</button>
-    </div>
+<div class="menu">
+<button>👑 Привилегии</button>
+<button>🚗 Машины</button>
+<button>🎟 AstraPass</button>
+<button>⚖️ Амнистия</button>
+<button>💰 Валюта</button>
+<button>🎁 Кейсы</button>
+<button>🏝 Недвижимость</button>
+</div>
 
-    <div class="card">
-        <h2>DELUXE</h2>
-        <div class="price">599 ₽</div>
-        <p>Максимальный набор привилегий</p>
-        <button class="buy">Купить</button>
-    </div>
+<div class="cards">
+
+<div class="card">
+<h3>🥉 Bronze</h3>
+<p>Стартовая привилегия</p>
+<div class="price">79 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🥈 Silver</h3>
+<p>Улучшенная привилегия</p>
+<div class="price">149 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+<div class="card">
+<h3>🥇 Gold</h3>
+<p>Популярный выбор</p>
+<div class="price">299 ₽</div>
+<button class="buy">Купить</button>
+</div>
+
+</div>
 
 </div>
 
