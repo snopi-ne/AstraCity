@@ -13,15 +13,14 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#05010d;
+background:#080312;
 color:white;
 overflow-x:hidden;
 }
-
-/* Фон */
 
 body::before{
 content:"";
@@ -29,10 +28,7 @@ position:fixed;
 inset:0;
 
 background:
-linear-gradient(
-rgba(5,1,13,.75),
-rgba(5,1,13,.92)
-),
+linear-gradient(rgba(8,3,18,.85),rgba(8,3,18,.95)),
 url("https://images.unsplash.com/photo-1519501025264-65ba15a82390");
 
 background-size:cover;
@@ -41,8 +37,6 @@ background-position:center;
 z-index:-2;
 }
 
-/* Шапка */
-
 header{
 
 position:fixed;
@@ -50,17 +44,14 @@ top:0;
 left:0;
 width:100%;
 
+padding:15px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-padding:15px;
-
-background:rgba(10,10,25,.5);
+background:rgba(10,10,20,.6);
 backdrop-filter:blur(15px);
-
-border-bottom:
-1px solid rgba(178,102,255,.15);
 
 z-index:999;
 
@@ -68,13 +59,13 @@ z-index:999;
 
 .logo{
 
-font-size:22px;
+font-size:18px;
 font-weight:900;
 
 color:#d4a5ff;
 
 text-shadow:
-0 0 15px #b266ff;
+0 0 20px #b266ff;
 
 }
 
@@ -87,22 +78,19 @@ gap:8px;
 
 .menu a{
 
-padding:10px 14px;
-
 text-decoration:none;
-
 color:white;
 
-font-size:13px;
+padding:10px 14px;
 
 border-radius:12px;
 
 background:
 rgba(255,255,255,.05);
 
-}
+font-size:12px;
 
-/* Первый экран */
+}
 
 .hero{
 
@@ -114,20 +102,20 @@ align-items:center;
 
 text-align:center;
 
-padding:100px 20px;
+padding:120px 20px;
 
 }
 
 .store-title{
 
-font-size:72px;
+font-size:42px;
 font-weight:900;
 
 background:
 linear-gradient(
 90deg,
 #ffffff,
-#e9c7ff,
+#d9b6ff,
 #b266ff,
 #ffffff
 );
@@ -145,13 +133,12 @@ animation:glow 6s infinite;
 
 margin-top:20px;
 
-font-size:17px;
+max-width:700px;
 
+font-size:15px;
 line-height:1.8;
 
 color:#d7d7d7;
-
-max-width:700px;
 
 }
 
@@ -159,14 +146,13 @@ max-width:700px;
 
 display:inline-block;
 
-margin-top:30px;
+margin-top:25px;
 
-padding:18px 35px;
+padding:16px 30px;
 
 border-radius:16px;
 
 text-decoration:none;
-
 font-weight:bold;
 
 color:white;
@@ -179,14 +165,7 @@ linear-gradient(
 );
 
 box-shadow:
-0 0 40px rgba(178,102,255,.4);
-
-}
-
-.scroll-text{
-
-margin-top:40px;
-opacity:.7;
+0 0 35px rgba(178,102,255,.4);
 
 }
 
@@ -211,87 +190,22 @@ ASTRACITY STORE
 </div>
 
 <div class="menu">
-<a href="index.html">Сайт</a>
-<a href="#priv">Донат</a>
-<a href="#cars">Авто</a>
+
+<a href="index.html">
+Сайт
+</a>
+
+<a href="#priv">
+Донат
+</a>
+
+<a href="#payment">
+Оплата
+</a>
+
 </div>
 
 </header>
-<section class="shop-menu">
-
-<a href="#priv">💎 Привилегии</a>
-
-<a href="#cars">🚗 Автомобили</a>
-
-<a href="#estate">🏝️ Недвижимость</a>
-
-<a href="#astrapass">🎟️ AstraPass</a>
-
-<a href="#payment">💳 Оплата</a>
-
-</section>
-
-<style>
-
-.shop-menu{
-
-position:sticky;
-top:70px;
-
-z-index:900;
-
-display:flex;
-gap:10px;
-
-overflow-x:auto;
-
-padding:15px;
-
-background:
-rgba(10,10,25,.6);
-
-backdrop-filter:blur(15px);
-
-}
-
-.shop-menu a{
-
-flex:none;
-
-padding:12px 18px;
-
-border-radius:14px;
-
-text-decoration:none;
-
-color:white;
-
-font-weight:bold;
-
-background:
-rgba(255,255,255,.05);
-
-border:
-1px solid rgba(178,102,255,.15);
-
-transition:.3s;
-
-}
-
-.shop-menu a:hover{
-
-background:
-linear-gradient(
-90deg,
-#6a0dad,
-#b266ff
-);
-
-transform:translateY(-3px);
-
-}
-
-</style>
 
 <section class="hero">
 
@@ -303,25 +217,25 @@ ASTRACITY STORE
 
 <p class="subtitle">
 
-Легендарные привилегии,
-эксклюзивные автомобили,
-личные острова,
-уникальный AstraPass
-и многое другое.
+Привилегии, AstraPass,
+автомобили, особняки,
+личные острова и многое другое.
 
 </p>
 
 <a href="#priv" class="start-btn">
-🚀 НАЧАТЬ ПОКУПКИ
+🚀 Открыть магазин
 </a>
-
-<div class="scroll-text">
-▼ листай вниз ▼
-</div>
 
 </div>
 
 </section>
+<section class="shop-nav">
+
+<a href="#priv">💎 Привилегии</a> <a href="#cars">🚗 Автомобили</a> <a href="#estate">🏝️ Недвижимость</a> <a href="#astrapass">🎟️ AstraPass</a> <a href="#payment">💳 Оплата</a>
+
+</section>
+
 <section id="priv" class="privileges">
 
 <h2 class="section-title">
@@ -332,65 +246,65 @@ ASTRACITY STORE
 
 <div class="rank bronze">
 <h3>🥉 BRONZE</h3>
-<p>Стартовая привилегия</p>
-<span>99 ₽</span>
-<button>Купить</button>
+<p>Стартовая привилегия проекта</p>
+<div class="price">99 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank silver">
 <h3>🥈 SILVER</h3>
 <p>Дополнительные возможности</p>
-<span>199 ₽</span>
-<button>Купить</button>
+<div class="price">199 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank gold">
 <h3>🥇 GOLD</h3>
 <p>Улучшенный набор команд</p>
-<span>399 ₽</span>
-<button>Купить</button>
+<div class="price">399 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank diamond">
 <h3>💠 DIAMOND</h3>
-<p>Редкие возможности сервера</p>
-<span>699 ₽</span>
-<button>Купить</button>
+<p>Редкие преимущества сервера</p>
+<div class="price">699 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank platinum">
 <h3>👑 PLATINUM</h3>
-<p>Премиум уровень</p>
-<span>999 ₽</span>
-<button>Купить</button>
+<p>Премиум статус</p>
+<div class="price">999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank master">
 <h3>🔥 MASTER</h3>
 <p>Для настоящих лидеров</p>
-<span>1499 ₽</span>
-<button>Купить</button>
+<div class="price">1499 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank supreme">
 <h3>⚡ SUPREME</h3>
 <p>Максимум возможностей</p>
-<span>2499 ₽</span>
-<button>Купить</button>
+<div class="price">2499 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank dragon">
 <h3>🐉 DRAGON</h3>
 <p>Легендарная привилегия</p>
-<span>3999 ₽</span>
-<button>Купить</button>
+<div class="price">3999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="rank sponsor">
 <h3>🌟 SPONSOR</h3>
-<p>Самый высокий статус</p>
-<span>5999 ₽</span>
-<button>Купить</button>
+<p>Высший статус проекта</p>
+<div class="price">5999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 </div>
@@ -399,15 +313,32 @@ ASTRACITY STORE
 
 <style>
 
-.privileges{
-padding:100px 20px;
+.shop-nav{
+display:flex;
+gap:10px;
+overflow:auto;
+padding:20px;
+justify-content:center;
+}
+
+.shop-nav a{
+text-decoration:none;
+color:white;
+padding:12px 18px;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(178,102,255,.15);
 }
 
 .section-title{
 text-align:center;
-font-size:42px;
-margin-bottom:40px;
+font-size:34px;
+margin-bottom:35px;
 color:#d4a5ff;
+}
+
+.privileges{
+padding:80px 20px;
 }
 
 .priv-grid{
@@ -419,105 +350,49 @@ margin:auto;
 }
 
 .rank{
-
 padding:25px;
-
-border-radius:22px;
-
-background:
-rgba(255,255,255,.05);
-
+border-radius:24px;
+background:rgba(255,255,255,.05);
 backdrop-filter:blur(15px);
-
 text-align:center;
-
 transition:.4s;
-
-border:
-1px solid rgba(255,255,255,.08);
-
 }
 
 .rank:hover{
-
-transform:
-translateY(-10px)
-scale(1.03);
-
+transform:translateY(-10px);
 }
 
 .rank h3{
 font-size:24px;
+margin-bottom:10px;
 }
 
-.rank p{
-margin-top:10px;
-color:#d6d6d6;
-}
-
-.rank span{
-
-display:block;
-
-margin:20px 0;
-
-font-size:28px;
+.price{
+font-size:32px;
 font-weight:900;
-
+margin:20px 0;
 }
 
-.rank button{
-
+.buy-btn{
 border:none;
+padding:14px 28px;
+border-radius:14px;
 cursor:pointer;
-
-padding:12px 24px;
-
-border-radius:12px;
-
 font-weight:bold;
-
-background:white;
-
+color:white;
+background:linear-gradient(90deg,#6a0dad,#b266ff);
+box-shadow:0 0 25px rgba(178,102,255,.4);
 }
 
-/* Цвета */
-
-.bronze{
-box-shadow:0 0 30px rgba(205,127,50,.4);
-}
-
-.silver{
-box-shadow:0 0 30px rgba(192,192,192,.4);
-}
-
-.gold{
-box-shadow:0 0 30px rgba(255,215,0,.4);
-}
-
-.diamond{
-box-shadow:0 0 30px rgba(0,255,255,.3);
-}
-
-.platinum{
-box-shadow:0 0 30px rgba(255,255,255,.4);
-}
-
-.master{
-box-shadow:0 0 30px rgba(255,120,0,.4);
-}
-
-.supreme{
-box-shadow:0 0 30px rgba(178,102,255,.5);
-}
-
-.dragon{
-box-shadow:0 0 40px rgba(255,0,80,.5);
-}
-
-.sponsor{
-box-shadow:0 0 40px rgba(0,255,120,.5);
-}
+.bronze{box-shadow:0 0 30px rgba(205,127,50,.35);}
+.silver{box-shadow:0 0 30px rgba(192,192,192,.35);}
+.gold{box-shadow:0 0 30px rgba(255,215,0,.35);}
+.diamond{box-shadow:0 0 30px rgba(0,255,255,.35);}
+.platinum{box-shadow:0 0 30px rgba(255,255,255,.35);}
+.master{box-shadow:0 0 30px rgba(255,120,0,.35);}
+.supreme{box-shadow:0 0 30px rgba(178,102,255,.5);}
+.dragon{box-shadow:0 0 40px rgba(255,0,80,.5);}
+.sponsor{box-shadow:0 0 40px rgba(0,255,120,.4);}
 
 </style>
 <section id="cars" class="cars">
@@ -531,29 +406,25 @@ box-shadow:0 0 40px rgba(0,255,120,.5);
 <div class="car-card">
 🏎️
 <h3>Lamborghini Huracan</h3>
-<p>Эксклюзивный суперкар</p>
-<span>2999 ₽</span>
+<p>Легендарный суперкар</p>
+<div class="price">2999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="car-card">
 🚙
 <h3>Mercedes G63</h3>
-<p>Легендарный внедорожник</p>
-<span>2499 ₽</span>
+<p>Премиальный внедорожник</p>
+<div class="price">2499 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="car-card">
 🚗
 <h3>BMW M5 CS</h3>
 <p>Спортивный седан</p>
-<span>1999 ₽</span>
-</div>
-
-<div class="car-card">
-👑
-<h3>Rolls-Royce Cullinan</h3>
-<p>Автомобиль для элиты</p>
-<span>3999 ₽</span>
+<div class="price">1999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 </div>
@@ -569,27 +440,19 @@ box-shadow:0 0 40px rgba(0,255,120,.5);
 <div class="estate-grid">
 
 <div class="estate-card">
-🏠
-<h3>Дом</h3>
-<span>799 ₽</span>
-</div>
-
-<div class="estate-card">
-🏢
-<h3>Пентхаус</h3>
-<span>1499 ₽</span>
-</div>
-
-<div class="estate-card">
 🏰
 <h3>Особняк</h3>
-<span>2999 ₽</span>
+<p>Личная элитная недвижимость</p>
+<div class="price">2999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 <div class="estate-card">
 🏝️
 <h3>Личный остров</h3>
-<span>6999 ₽</span>
+<p>Собственный остров игрока</p>
+<div class="price">6999 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
 </div>
@@ -602,20 +465,27 @@ box-shadow:0 0 40px rgba(0,255,120,.5);
 🎟️ ASTRAPASS
 </h2>
 
-<div class="pass-line">
+<div class="pass-grid">
 
-<div class="pass-level">1</div>
-<div class="pass-level">5</div>
-<div class="pass-level">10</div>
-<div class="pass-level">25</div>
-<div class="pass-level">50</div>
-<div class="pass-level">100</div>
-
+<div class="pass-card">
+<h3>25 уровней AstraPass</h3>
+<div class="price">55 ₽</div>
+<button class="buy-btn">Купить</button>
 </div>
 
-<p class="pass-text">
-Получай уникальные награды и эксклюзивные предметы.
-</p>
+<div class="pass-card">
+<h3>50 уровней AstraPass</h3>
+<div class="price">99 ₽</div>
+<button class="buy-btn">Купить</button>
+</div>
+
+<div class="pass-card">
+<h3>100 уровней AstraPass</h3>
+<div class="price">199 ₽</div>
+<button class="buy-btn">Купить</button>
+</div>
+
+</div>
 
 </section>
 
@@ -627,393 +497,25 @@ box-shadow:0 0 40px rgba(0,255,120,.5);
 
 <div class="payment-box">
 
-<div class="pay-card">
-💵 Банковская карта
-<p>Visa • Mastercard • Мир</p>
-</div>
-
-<div class="pay-card">
-📱 СБП
-<p>Моментальная оплата</p>
-</div>
-
-<div class="pay-card">
-💎 Донат-коины
-<p>Внутриигровая валюта</p>
-</div>
-
-</div>
-
-<div class="rubles">
-
-<h3>Минимальная покупка</h3>
-
-<div class="price-big">
-от 99 ₽
-</div>
-
-<p>
-Все цены указаны в российских рублях.
-</p>
+<div>📱 СБП</div>
+<div>🟡 Т-Банк</div>
+<div>🟢 СберБанк</div>
+<div>💳 Банковская карта</div>
 
 </div>
 
 </section>
 
-<style>
-
-.payment{
-padding:100px 20px;
-}
-
-.payment-box{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-max-width:1200px;
-margin:auto;
-
-}
-
-.pay-card{
-
-padding:25px;
-
-text-align:center;
-
-border-radius:20px;
-
-background:
-rgba(255,255,255,.05);
-
-border:
-1px solid rgba(178,102,255,.15);
-
-backdrop-filter:blur(15px);
-
-}
-
-.rubles{
-
-text-align:center;
-
-margin-top:50px;
-
-}
-
-.price-big{
-
-font-size:60px;
-font-weight:900;
-
-color:#d4a5ff;
-
-text-shadow:
-0 0 25px #b266ff;
-
-margin:20px 0;
-
-}
-
-</style>
-
-
-<h2>ASTRACITY STORE</h2>
-
-<p>
-Спасибо за поддержку проекта 💜
-</p>
-
-</footer>
-
-<style>
-
-.cars,
-.estate,
-.astrapass{
-padding:100px 20px;
-}
-
-.cars-grid,
-.estate-grid{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-max-width:1400px;
-margin:auto;
-
-}
-
-.car-card,
-.estate-card{
-
-background:
-rgba(255,255,255,.05);
-
-padding:25px;
-
-border-radius:22px;
-
-text-align:center;
-
-backdrop-filter:blur(15px);
-
-border:
-1px solid rgba(255,255,255,.08);
-
-transition:.4s;
-
-}
-
-.car-card:hover,
-.estate-card:hover{
-
-transform:
-translateY(-10px)
-scale(1.03);
-
-box-shadow:
-0 0 40px rgba(178,102,255,.4);
-
-}
-
-.car-card h3,
-.estate-card h3{
-
-margin:15px 0;
-
-}
-
-.car-card span,
-.estate-card span{
-
-display:block;
-
-margin-top:15px;
-
-font-size:24px;
-font-weight:900;
-
-color:#d4a5ff;
-
-}
-
-.pass-line{
-
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:15px;
-
-margin-top:40px;
-
-}
-
-.pass-level{
-
-width:70px;
-height:70px;
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-weight:900;
-
-background:
-linear-gradient(
-90deg,
-#6a0dad,
-#b266ff
-);
-
-box-shadow:
-0 0 25px rgba(178,102,255,.5);
-
-}
-
-.pass-text{
-
-text-align:center;
-margin-top:30px;
-color:#d6d6d6;
-
-}
-
-.store-footer{
-
-padding:80px 20px;
-
-text-align:center;
-
-border-top:
-1px solid rgba(255,255,255,.08);
-
-}
-
-.store-footer h2{
-
-color:#d4a5ff;
-
-margin-bottom:15px;
-
-}
-
-/* Эффект свечения */
-
-.car-card,
-.estate-card,
-.rank{
-
-animation:
-floatCard 4s ease-in-out infinite;
-
-}
-
-@keyframes floatCard{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0);
-}
-
-}
-
-</style>
-
-</body>
-  <!-- Окно оплаты -->
-
-.payment-modal{
-
-display:none;
-
-position:fixed;
-inset:0;
-
-background:rgba(0,0,0,.75);
-
-backdrop-filter:blur(10px);
-
-justify-content:center;
-align-items:center;
-
-z-index:99999;
-
-}
-
-.payment-content{
-
-width:90%;
-max-width:420px;
-
-padding:25px;
-
-border-radius:25px;
-
-background:
-linear-gradient(
-180deg,
-rgba(30,20,60,.98),
-rgba(15,10,35,.98)
-);
-
-border:
-1px solid rgba(178,102,255,.35);
-
-box-shadow:
-0 0 60px rgba(178,102,255,.45);
-
-text-align:center;
-
-animation:popup .35s ease;
-
-}
-
-@keyframes popup{
-
-0%{
-opacity:0;
-transform:scale(.8);
-}
-
-100%{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
-.pay-method{
-
-padding:16px;
-
-margin-top:12px;
-
-border-radius:15px;
-
-font-weight:bold;
-
-background:
-rgba(255,255,255,.05);
-
-transition:.3s;
-
-cursor:pointer;
-
-}
-
-.pay-method:hover{
-
-transform:scale(1.03);
-
-background:
-linear-gradient(
-90deg,
-#6a0dad,
-#b266ff
-);
-
-}
-
+<div id="paymentModal" class="payment-modal">
 
 <div class="payment-content">
 
-<h2>💳 Выберите способ оплаты</h2>
+<h2>💳 Оплата товара</h2>
 
-<div class="pay-method">
-📱 СБП
-</div>
-
-<div class="pay-method">
-🟡 Т-Банк
-</div>
-
-<div class="pay-method">
-🟢 СберБанк
-</div>
-
-<div class="pay-method">
-💳 Банковская карта
-</div>
+<div class="pay-method">📱 СБП</div>
+<div class="pay-method">🟡 Т-Банк</div>
+<div class="pay-method">🟢 СберБанк</div>
+<div class="pay-method">💳 Банковская карта</div>
 
 <button class="pay-button">
 Оплатить
@@ -1027,7 +529,92 @@ linear-gradient(
 
 </div>
 
+<footer>
+
+<h2>ASTRACITY STORE</h2>
+
+<p>Спасибо за поддержку проекта 💜</p>
+
+</footer>
+
 <style>
+
+.cars,
+.estate,
+.astrapass,
+.payment{
+padding:90px 20px;
+}
+
+.cars-grid,
+.estate-grid,
+.pass-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+max-width:1200px;
+margin:auto;
+
+}
+
+.car-card,
+.estate-card,
+.pass-card{
+
+padding:25px;
+
+border-radius:22px;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.car-card:hover,
+.estate-card:hover,
+.pass-card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 0 35px rgba(178,102,255,.45);
+
+}
+
+.payment-box{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+max-width:800px;
+margin:auto;
+
+}
+
+.payment-box div{
+
+padding:20px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.05);
+
+text-align:center;
+
+}
 
 .payment-modal{
 
@@ -1038,17 +625,17 @@ inset:0;
 
 background:rgba(0,0,0,.8);
 
-z-index:99999;
-
 justify-content:center;
 align-items:center;
+
+z-index:99999;
 
 }
 
 .payment-content{
 
 width:90%;
-max-width:420px;
+max-width:400px;
 
 padding:25px;
 
@@ -1057,40 +644,19 @@ border-radius:25px;
 background:
 rgba(20,20,40,.95);
 
-backdrop-filter:blur(20px);
-
 text-align:center;
-
-border:
-1px solid rgba(178,102,255,.3);
 
 }
 
 .pay-method{
 
-padding:15px;
+padding:14px;
+margin-top:10px;
 
-margin-top:12px;
-
-border-radius:15px;
+border-radius:14px;
 
 background:
 rgba(255,255,255,.05);
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.pay-method:hover{
-
-background:
-linear-gradient(
-90deg,
-#6a0dad,
-#b266ff
-);
 
 }
 
@@ -1098,17 +664,11 @@ linear-gradient(
 
 margin-top:20px;
 
-padding:15px 25px;
+padding:14px 25px;
 
 border:none;
 
-border-radius:15px;
-
-font-weight:bold;
-
-color:white;
-
-cursor:pointer;
+border-radius:14px;
 
 background:
 linear-gradient(
@@ -1116,6 +676,10 @@ linear-gradient(
 #6a0dad,
 #b266ff
 );
+
+color:white;
+
+font-weight:bold;
 
 }
 
@@ -1129,7 +693,16 @@ border:none;
 
 border-radius:12px;
 
-cursor:pointer;
+}
+
+footer{
+
+padding:80px 20px;
+
+text-align:center;
+
+border-top:
+1px solid rgba(255,255,255,.08);
 
 }
 
@@ -1138,29 +711,18 @@ cursor:pointer;
 <script>
 
 function openPayment(){
-
-document.getElementById(
-"paymentModal"
-).style.display="flex";
-
+document.getElementById("paymentModal").style.display="flex";
 }
 
 function closePayment(){
-
-document.getElementById(
-"paymentModal"
-).style.display="none";
-
+document.getElementById("paymentModal").style.display="none";
 }
 
-document.querySelectorAll(
-".buy-btn,.rank button"
-).forEach(btn=>{
-
-btn.onclick=openPayment;
-
+document.querySelectorAll(".buy-btn").forEach(btn=>{
+btn.addEventListener("click",openPayment);
 });
 
 </script>
 
+</body>
 </html>
