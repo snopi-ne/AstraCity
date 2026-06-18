@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstraCity Store</title>
 
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b0614;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(90deg,#6a0dad,#b266ff);
+}
+
+h1{
+    margin:0;
+    font-size:40px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 24px;
+    background:white;
+    color:#6a0dad;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:40px 20px;
+}
+
+.card{
+    width:280px;
+    background:#151020;
+    border:1px solid #8d4dff;
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(178,102,255,.5);
+}
+
+.price{
+    font-size:32px;
+    color:#c792ff;
+    margin:15px 0;
+}
+
+.buy{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#8d4dff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>💎 AstraCity Store</h1>
+    <p>Официальный магазин сервера</p>
+
+    <a href="index.html" class="back">⬅ На главную</a>
+</header>
+
+<div class="products">
+
+    <div class="card">
+        <h2>VIP</h2>
+        <div class="price">99 ₽</div>
+        <p>Базовая привилегия</p>
+        <button class="buy">Купить</button>
+    </div>
+
+    <div class="card">
+        <h2>PREMIUM</h2>
+        <div class="price">299 ₽</div>
+        <p>Расширенные возможности</p>
+        <button class="buy">Купить</button>
+    </div>
+
+    <div class="card">
+        <h2>DELUXE</h2>
+        <div class="price">599 ₽</div>
+        <p>Максимальный набор привилегий</p>
+        <button class="buy">Купить</button>
+    </div>
+
+</div>
+
+</body>
+</html>
