@@ -569,4 +569,192 @@ font-size:24px;
 </style>
 
 </body>
+  <script>
+
+// Плавное появление блоков
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+
+});
+
+});
+
+document.querySelectorAll(
+'.card,.feature-card,.discord-block,.online'
+).forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+
+<style>
+
+.card,
+.feature-card,
+.discord-block,
+.online{
+
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Пульсация кнопок */
+
+.donate,
+.discord,
+.discord-big,
+.store-btn{
+
+animation:pulseBtn 3s infinite;
+
+}
+
+@keyframes pulseBtn{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* Летающее свечение */
+
+.roleplay{
+
+text-shadow:
+0 0 20px #b266ff,
+0 0 40px #b266ff,
+0 0 80px #b266ff;
+
+}
+
+/* Парящие карточки */
+
+.card:hover,
+.feature-card:hover{
+
+transform:
+translateY(-10px)
+scale(1.04);
+
+}
+
+/* Неоновая линия сверху */
+
+body::after{
+
+content:"";
+
+position:fixed;
+top:0;
+left:-100%;
+
+width:50%;
+height:2px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#b266ff,
+transparent
+);
+
+animation:scan 6s linear infinite;
+
+z-index:9999;
+
+}
+
+@keyframes scan{
+
+0%{
+left:-100%;
+}
+
+100%{
+left:200%;
+}
+
+}
+
+/* Падающие метеоры */
+
+.meteor{
+
+position:fixed;
+width:2px;
+height:120px;
+
+background:
+linear-gradient(
+transparent,
+white
+);
+
+transform:rotate(35deg);
+
+pointer-events:none;
+
+}
+
+</style>
+
+<script>
+
+setInterval(()=>{
+
+let meteor=document.createElement("div");
+
+meteor.classList.add("meteor");
+
+meteor.style.left=
+Math.random()*window.innerWidth+"px";
+
+meteor.style.top="-100px";
+
+document.body.appendChild(meteor);
+
+let pos=-100;
+
+let fall=setInterval(()=>{
+
+pos+=15;
+
+meteor.style.top=pos+"px";
+
+if(pos>window.innerHeight+200){
+
+meteor.remove();
+
+clearInterval(fall);
+
+}
+
+},20);
+
+},2500);
+
+</script>
 </html>
