@@ -7,205 +7,278 @@
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#0a0014;
-  color:white;
-  overflow:hidden;
+background:#070010;
+color:white;
+overflow-x:hidden;
 }
 
-/* Canvas particles */
-#particles{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:0;
+/* ===== PARTICLES ===== */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:0;
 }
 
-/* Main container */
-.container{
-  position:relative;
-  z-index:1;
-  text-align:center;
-  padding:60px 20px;
+/* ===== HERO ===== */
+.hero{
+position:relative;
+z-index:1;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+background:radial-gradient(circle at top,#1a0033,#070010);
 }
 
-/* Logo */
-h1{
-  font-size:42px;
-  color:#b46bff;
-  letter-spacing:3px;
+.logo{
+font-size:52px;
+font-weight:bold;
+color:#c084ff;
+text-shadow:0 0 25px #a855f7;
+letter-spacing:3px;
 }
 
 .subtitle{
-  margin-top:10px;
-  font-size:16px;
-  opacity:0.8;
+margin-top:10px;
+opacity:.8;
+font-size:16px;
+max-width:600px;
 }
 
-/* Menu */
+.ip{
+margin-top:20px;
+padding:12px 20px;
+border:1px solid rgba(168,85,247,.4);
+border-radius:14px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+}
+
+.btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:14px;
+background:#a855f7;
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #a855f7;
+}
+
+/* ===== MENU ===== */
 .menu{
-  margin-top:30px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+position:relative;
+z-index:1;
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+margin:25px 10px;
 }
 
 .menu a{
-  text-decoration:none;
-  color:white;
-  padding:10px 18px;
-  border:1px solid #b46bff;
-  border-radius:10px;
-  transition:0.3s;
-  font-size:14px;
+text-decoration:none;
+color:white;
+padding:10px 16px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(168,85,247,.3);
+transition:.3s;
+font-size:14px;
 }
 
 .menu a:hover{
-  background:#b46bff;
-  box-shadow:0 0 15px #b46bff;
+background:#a855f7;
 }
 
-/* IP block */
-.ip{
-  margin-top:35px;
-  font-size:18px;
-  color:#d7b3ff;
+/* ===== STORE ===== */
+.section{
+padding:70px 20px;
+position:relative;
+z-index:1;
 }
 
-.button{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 22px;
-  background:#b46bff;
-  color:white;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
+.title{
+text-align:center;
+font-size:30px;
+color:#c084ff;
+margin-bottom:30px;
 }
 
-.button:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px #b46bff;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+max-width:1200px;
+margin:auto;
 }
 
-/* Description */
-.desc{
-  margin-top:40px;
-  max-width:700px;
-  margin-left:auto;
-  margin-right:auto;
-  font-size:14px;
-  opacity:0.85;
-  line-height:1.5;
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(168,85,247,.3);
+border-radius:18px;
+padding:18px;
+backdrop-filter:blur(10px);
+transition:.3s;
 }
 
-/* Mobile */
+.card:hover{
+transform:translateY(-8px);
+}
+
+.price{
+margin:12px 0;
+font-size:24px;
+color:#d8b4fe;
+}
+
+.buy{
+width:100%;
+padding:10px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#7c3aed,#a855f7);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* mobile */
 @media(max-width:600px){
-  h1{font-size:28px;}
-  .subtitle{font-size:13px;}
-  .menu a{font-size:12px; padding:8px 12px;}
+.logo{font-size:32px;}
+.subtitle{font-size:13px;}
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
+<canvas id="p"></canvas>
 
-<div class="container">
-  <h1>ASTRO CITY</h1>
-  <div class="subtitle">RolePlay сервер в Minecraft</div>
-
-  <div class="menu">
-    <a href="#">Главная</a>
-    <a href="#">Правила</a>
-    <a href="#">Фракции</a>
-    <a href="#">Донат</a>
-    <a href="#">Форум</a>
+<div class="hero">
+  <div class="logo">ASTRO CITY</div>
+  <div class="subtitle">
+    Самый легендарный RolePlay сервер в Minecraft.  
+    Создай свою историю: полиция, мафия, бизнес, политика — всё возможно.
   </div>
 
-  <div class="ip">
-    СЕРВЕР ОНЛАЙН<br>
-    <b style="color:#fff;">mc.atlantworld.com</b>
-  </div>
+  <div class="ip">mc.atlantworld.com</div>
 
-  <a class="button" href="#">Купить донат</a>
-
-  <div class="desc">
-    Стань бандитом, полицейским, чиновником, бизнесменом или выбери любую другую профессию.  
-    Здесь нет ограничений — ты сам выбираешь свой путь и создаёшь собственную историю.
-  </div>
+  <button class="btn">Войти на сервер</button>
 </div>
 
+<div class="menu">
+  <a href="#priv">Привилегии</a>
+  <a href="#cars">Машины</a>
+  <a href="#pass">AstraPass</a>
+  <a href="#money">Валюта</a>
+  <a href="#cases">Кейсы</a>
+  <a href="#estate">Недвижимость</a>
+</div>
+
+<!-- ТВОЙ МАГАЗИН -->
+<!-- (я оставил структуру, чтобы не ломать) -->
+
+<section class="section" id="priv">
+<h2 class="title">👑 Привилегии</h2>
+<div class="cards">
+<div class="card"><h3>Bronze</h3><div class="price">79 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Silver</h3><div class="price">149 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Gold</h3><div class="price">299 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Diamond</h3><div class="price">499 ₽</div><button class="buy">Купить</button></div>
+</div>
+</section>
+
+<section class="section" id="cars">
+<h2 class="title">🚗 Машины</h2>
+<div class="cards">
+<div class="card"><h3>BMW M5</h3><div class="price">499 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Mercedes</h3><div class="price">599 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Lamborghini</h3><div class="price">1299 ₽</div><button class="buy">Купить</button></div>
+</div>
+</section>
+
+<section class="section" id="money">
+<h2 class="title">💰 Валюта</h2>
+<div class="cards">
+<div class="card"><h3>100K$</h3><div class="price">49 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>1M$</h3><div class="price">349 ₽</div><button class="buy">Купить</button></div>
+</div>
+</section>
+
+<section class="section" id="cases">
+<h2 class="title">🎁 Кейсы</h2>
+<div class="cards">
+<div class="card"><h3>Обычный</h3><div class="price">49 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Легендарный</h3><div class="price">399 ₽</div><button class="buy">Купить</button></div>
+</div>
+</section>
+
+<section class="section" id="estate">
+<h2 class="title">🏝 Недвижимость</h2>
+<div class="cards">
+<div class="card"><h3>Особняк</h3><div class="price">2999 ₽</div><button class="buy">Купить</button></div>
+<div class="card"><h3>Остров</h3><div class="price">4999 ₽</div><button class="buy">Купить</button></div>
+</div>
+</section>
+
 <script>
-// PARTICLES
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+/* particles */
+const c=document.getElementById("p");
+const x=c.getContext("2d");
+c.width=innerWidth;
+c.height=innerHeight;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let arr=[];
 
-let particlesArray = [];
-
-class Particle{
-  constructor(){
-    this.x = Math.random()*canvas.width;
-    this.y = Math.random()*canvas.height;
-    this.size = Math.random()*2;
-    this.speedX = (Math.random()-0.5)*0.5;
-    this.speedY = (Math.random()-0.5)*0.5;
-  }
-
-  update(){
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if(this.x < 0) this.x = canvas.width;
-    if(this.x > canvas.width) this.x = 0;
-    if(this.y < 0) this.y = canvas.height;
-    if(this.y > canvas.height) this.y = 0;
-  }
-
-  draw(){
-    ctx.fillStyle = "#b46bff";
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-    ctx.fill();
-  }
-}
-
-function init(){
-  for(let i=0;i<80;i++){
-    particlesArray.push(new Particle());
-  }
-}
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(let i=0;i<particlesArray.length;i++){
-    particlesArray[i].update();
-    particlesArray[i].draw();
-  }
-  requestAnimationFrame(animate);
-}
-
-init();
-animate();
-
-window.addEventListener("resize", function(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+for(let i=0;i<60;i++){
+arr.push({
+x:Math.random()*c.width,
+y:Math.random()*c.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
 });
+}
+
+function draw(){
+x.clearRect(0,0,c.width,c.height);
+
+for(let i=0;i<arr.length;i++){
+let p=arr[i];
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0)p.x=c.width;
+if(p.y<0)p.y=c.height;
+
+x.fillStyle="#a855f7";
+x.beginPath();
+x.arc(p.x,p.y,p.r,0,Math.PI*2);
+x.fill();
+}
+
+requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
