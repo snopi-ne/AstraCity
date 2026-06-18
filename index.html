@@ -1,143 +1,311 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASTRO CITY RP</title>
+<div class="hero-content">
+
+<div class="legend">
+САМЫЙ ЛЕГЕНДАРНЫЙ
+</div>
+
+<div class="roleplay">
+RolePlay
+</div>
+
+<div class="minecraft">
+СЕРВЕР В MINECRAFT
+</div>
+
+<div class="description">
+Стань бандитом, полицейским, чиновником, бизнесменом или выбери любую другую профессию. Здесь нет ограничений — ты сам выбираешь свой путь и создаёшь собственную историю.
+</div>
+
+<a href="store.html" class="btn">
+💜 Купить донат
+</a>
+
+<div class="online">
+<h2>🟢 СЕРВЕР ОНЛАЙН</h2>
+<p>Скоро открытие проекта</p>
+</div>
+
+</div>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
-body{
-background:#0a0015;
-overflow:hidden;
-color:white;
-}
-
-/* canvas particles */
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:0;
-}
-
-/* центр */
-.hero{
-position:relative;
-z-index:2;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+.hero-content{
+max-width:600px;
+margin:auto;
 text-align:center;
 padding:20px;
 }
 
-/* текст */
-h1{
-font-size:60px;
-color:#c084ff;
-text-shadow:0 0 25px #a855f7;
-animation:fade 1.2s ease;
+.legend{
+font-size:12px;
+font-weight:700;
+letter-spacing:3px;
+margin-bottom:10px;
+color:#ffffff;
 }
 
-p{
-max-width:600px;
-opacity:.8;
-margin-top:10px;
-animation:fade 1.6s ease;
+.roleplay{
+font-size:52px;
+font-weight:900;
+line-height:1;
+margin:5px 0;
+
+background:linear-gradient(
+90deg,
+#ffffff,
+#e6c8ff,
+#b266ff,
+#ffffff
+);
+
+background-size:300% 300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:glow 5s infinite;
 }
 
-/* кнопки */
-.buttons{
-margin-top:25px;
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-justify-content:center;
+.minecraft{
+font-size:16px;
+font-weight:700;
+letter-spacing:2px;
+margin-top:5px;
 }
 
-a{
-text-decoration:none;
-padding:12px 20px;
-border-radius:12px;
-background:#a855f7;
+.description{
+margin-top:20px;
+font-size:14px;
+line-height:1.6;
+color:#d8d8d8;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+border-radius:15px;
+background:linear-gradient(
+90deg,
+#6a0dad,
+#b266ff
+);
 color:white;
+text-decoration:none;
+font-size:16px;
 font-weight:bold;
-transition:.3s;
-box-shadow:0 0 10px #a855f7;
 }
 
-a:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px #a855f7;
+.online{
+margin-top:20px;
+padding:15px;
+border-radius:15px;
+background:rgba(255,255,255,.05);
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
+.online h2{
+font-size:18px;
 }
+
+.online p{
+font-size:14px;
+margin-top:5px;
+}
+
+@keyframes glow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
 </style>
-</head>
+<section class="jobs-section">
 
-<body>
+<h2 class="section-title">
+Выбери свою судьбу
+</h2>
 
-<canvas id="p"></canvas>
+<div class="jobs-grid">
 
-<div class="hero">
-  <h1>ASTRO CITY</h1>
-  <p>Легендарный RolePlay сервер Minecraft. Полиция, мафия, бизнес — твоя история.</p>
-
-  <div class="buttons">
-    <a href="store.html">💸 Купить донат</a>
-    <a href="#ip">📡 IP сервера</a>
-  </div>
-
-  <p id="ip">mc.atlantworld.com</p>
+<div class="job-card">
+👮
+<h3>Полиция</h3>
+<p>Защищай город от преступности.</p>
 </div>
 
-<script>
-// particles
-const c=document.getElementById("p");
-const ctx=c.getContext("2d");
-c.width=innerWidth;
-c.height=innerHeight;
+<div class="job-card">
+🚑
+<h3>Медик</h3>
+<p>Спасай жизни жителей города.</p>
+</div>
 
-let p=[];
+<div class="job-card">
+💼
+<h3>Бизнесмен</h3>
+<p>Открывай компании и зарабатывай миллионы.</p>
+</div>
 
-for(let i=0;i<80;i++){
-p.push({
-x:Math.random()*c.width,
-y:Math.random()*c.height,
-r:Math.random()*2,
-dx:(Math.random()-0.5),
-dy:(Math.random()-0.5)
-});
+<div class="job-card">
+😈
+<h3>Бандит</h3>
+<p>Создай собственную криминальную империю.</p>
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.jobs-section{
+padding:60px 15px;
 }
 
-function anim(){
-ctx.clearRect(0,0,c.width,c.height);
-
-for(let i=0;i<p.length;i++){
-let s=p[i];
-s.x+=s.dx;
-s.y+=s.dy;
-
-if(s.x<0)s.x=c.width;
-if(s.y<0)s.y=c.height;
-
-ctx.fillStyle="#a855f7";
-ctx.beginPath();
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-ctx.fill();
+.section-title{
+text-align:center;
+font-size:26px;
+margin-bottom:25px;
+color:#d4a5ff;
 }
 
-requestAnimationFrame(anim);
+.jobs-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
 }
-anim();
-</script>
 
-</body>
-</html>
+.job-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(178,102,255,.2);
+border-radius:18px;
+padding:18px;
+text-align:center;
+backdrop-filter:blur(10px);
+}
+
+.job-card h3{
+font-size:16px;
+margin-top:8px;
+}
+
+.job-card p{
+font-size:12px;
+margin-top:6px;
+color:#d6d6d6;
+line-height:1.4;
+}
+
+</style>
+<section class="advantages">
+
+<h2 class="section-title">
+Почему AstraCity?
+</h2>
+
+<div class="adv-grid">
+
+<div class="adv-card">
+🚗
+<h3>Сотни машин</h3>
+<p>От обычных авто до суперкаров.</p>
+</div>
+
+<div class="adv-card">
+🏝️
+<h3>Недвижимость</h3>
+<p>Особняки, пентхаусы и острова.</p>
+</div>
+
+<div class="adv-card">
+🎟️
+<h3>AstraPass</h3>
+<p>Уникальные награды каждый сезон.</p>
+</div>
+
+<div class="adv-card">
+💎
+<h3>Привилегии</h3>
+<p>Bronze, Silver, Gold и другие.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="discord-section">
+
+<h2>
+Наш Discord
+</h2>
+
+<p>
+Общайся с игроками и следи за новостями проекта.
+</p>
+
+<a href="https://discord.gg/zVWzNKr5D" class="discord-btn">
+💬 Вступить в Discord
+</a>
+
+</section>
+
+<style>
+
+.advantages{
+padding:60px 15px;
+}
+
+.adv-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin-top:20px;
+}
+
+.adv-card{
+background:rgba(255,255,255,.05);
+border-radius:18px;
+padding:18px;
+text-align:center;
+border:1px solid rgba(178,102,255,.2);
+}
+
+.adv-card h3{
+font-size:15px;
+margin-top:8px;
+}
+
+.adv-card p{
+font-size:12px;
+margin-top:5px;
+color:#d6d6d6;
+}
+
+.discord-section{
+padding:60px 15px;
+text-align:center;
+}
+
+.discord-section h2{
+font-size:28px;
+color:#d4a5ff;
+}
+
+.discord-section p{
+font-size:14px;
+margin-top:10px;
+color:#d6d6d6;
+}
+
+.discord-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 26px;
+border-radius:14px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+background:#5865F2;
+box-shadow:0 0 20px rgba(88,101,242,.4);
+}
+
+</style>
