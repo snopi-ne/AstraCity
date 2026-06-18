@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -6,114 +7,335 @@
 <title>AstraCity Store</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
-background:#07040f;
+background:#05010d;
 color:white;
 overflow-x:hidden;
 }
 
-/* Падающие звезды */
-.star{
-position:fixed;
-width:2px;
-height:80px;
-background:linear-gradient(transparent,#fff);
-opacity:.7;
-transform:rotate(45deg);
-pointer-events:none;
-}
+/* Фон */
 
-.hero{
-min-height:100vh;
-padding:30px;
+body::before{
+content:"";
+position:fixed;
+inset:0;
+
 background:
-linear-gradient(rgba(8,5,17,.88),rgba(8,5,17,.95)),
-url('https://images.unsplash.com/photo-1514565131-fce0801e5785');
+linear-gradient(
+rgba(5,1,13,.75),
+rgba(5,1,13,.92)
+),
+url("https://images.unsplash.com/photo-1519501025264-65ba15a82390");
+
 background-size:cover;
 background-position:center;
+
+z-index:-2;
+}
+
+/* Шапка */
+
+header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px;
+
+background:rgba(10,10,25,.5);
+backdrop-filter:blur(15px);
+
+border-bottom:
+1px solid rgba(178,102,255,.15);
+
+z-index:999;
+
 }
 
 .logo{
-text-align:center;
-font-size:54px;
-font-weight:bold;
-color:#d39cff;
-text-shadow:0 0 25px #b266ff;
-}
 
-.subtitle{
-text-align:center;
-margin-top:10px;
-opacity:.8;
-}
+font-size:22px;
+font-weight:900;
 
-.server{
-margin:20px auto;
-max-width:700px;
-padding:15px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(178,102,255,.3);
-border-radius:16px;
-text-align:center;
-backdrop-filter:blur(10px);
-}
+color:#d4a5ff;
 
-.nickname{
-max-width:700px;
-margin:20px auto;
-}
+text-shadow:
+0 0 15px #b266ff;
 
-.nickname input{
-width:100%;
-padding:16px;
-border:none;
-border-radius:14px;
-background:#1b1230;
-color:white;
-font-size:16px;
 }
 
 .menu{
+
 display:flex;
-gap:10px;
-overflow-x:auto;
-margin-top:25px;
-padding-bottom:10px;
+gap:8px;
+
 }
 
 .menu a{
+
+padding:10px 14px;
+
 text-decoration:none;
+
 color:white;
-background:#241539;
-padding:12px 18px;
+
+font-size:13px;
+
 border-radius:12px;
-white-space:nowrap;
+
+background:
+rgba(255,255,255,.05);
+
 }
 
-.menu a:hover{
-background:#b266ff;
-}
+/* Первый экран */
 
-.section{
-padding:70px 20px;
-}
+.hero{
 
-.title{
-font-size:32px;
-margin-bottom:25px;
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
 text-align:center;
-color:#d39cff;
+
+padding:100px 20px;
+
 }
 
-.cards{
+.store-title{
+
+font-size:72px;
+font-weight:900;
+
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#e9c7ff,
+#b266ff,
+#ffffff
+);
+
+background-size:300% 300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:glow 6s infinite;
+
+}
+
+.subtitle{
+
+margin-top:20px;
+
+font-size:17px;
+
+line-height:1.8;
+
+color:#d7d7d7;
+
+max-width:700px;
+
+}
+
+.start-btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:18px 35px;
+
+border-radius:16px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:white;
+
+background:
+linear-gradient(
+90deg,
+#6a0dad,
+#b266ff
+);
+
+box-shadow:
+0 0 40px rgba(178,102,255,.4);
+
+}
+
+.scroll-text{
+
+margin-top:40px;
+opacity:.7;
+
+}
+
+@keyframes glow{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+ASTRACITY STORE
+</div>
+
+<div class="menu">
+<a href="index.html">Сайт</a>
+<a href="#priv">Донат</a>
+<a href="#cars">Авто</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1 class="store-title">
+ASTRACITY STORE
+</h1>
+
+<p class="subtitle">
+
+Легендарные привилегии,
+эксклюзивные автомобили,
+личные острова,
+уникальный AstraPass
+и многое другое.
+
+</p>
+
+<a href="#priv" class="start-btn">
+🚀 НАЧАТЬ ПОКУПКИ
+</a>
+
+<div class="scroll-text">
+▼ листай вниз ▼
+</div>
+
+</div>
+
+</section>
+<section id="priv" class="privileges">
+
+<h2 class="section-title">
+💎 ПРИВИЛЕГИИ
+</h2>
+
+<div class="priv-grid">
+
+<div class="rank bronze">
+<h3>🥉 BRONZE</h3>
+<p>Стартовая привилегия</p>
+<span>99 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank silver">
+<h3>🥈 SILVER</h3>
+<p>Дополнительные возможности</p>
+<span>199 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank gold">
+<h3>🥇 GOLD</h3>
+<p>Улучшенный набор команд</p>
+<span>399 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank diamond">
+<h3>💠 DIAMOND</h3>
+<p>Редкие возможности сервера</p>
+<span>699 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank platinum">
+<h3>👑 PLATINUM</h3>
+<p>Премиум уровень</p>
+<span>999 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank master">
+<h3>🔥 MASTER</h3>
+<p>Для настоящих лидеров</p>
+<span>1499 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank supreme">
+<h3>⚡ SUPREME</h3>
+<p>Максимум возможностей</p>
+<span>2499 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank dragon">
+<h3>🐉 DRAGON</h3>
+<p>Легендарная привилегия</p>
+<span>3999 ₽</span>
+<button>Купить</button>
+</div>
+
+<div class="rank sponsor">
+<h3>🌟 SPONSOR</h3>
+<p>Самый высокий статус</p>
+<span>5999 ₽</span>
+<button>Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.privileges{
+padding:100px 20px;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:40px;
+color:#d4a5ff;
+}
+
+.priv-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
@@ -121,443 +343,384 @@ max-width:1400px;
 margin:auto;
 }
 
-.card{
-background:rgba(255,255,255,.05);
-border-radius:20px;
-padding:20px;
-border:1px solid rgba(178,102,255,.3);
-backdrop-filter:blur(10px);
-transition:.3s;
+.rank{
+
+padding:25px;
+
+border-radius:22px;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+text-align:center;
+
+transition:.4s;
+
+border:
+1px solid rgba(255,255,255,.08);
+
 }
 
-.card:hover{
-transform:translateY(-8px);
+.rank:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
 }
 
-.price{
+.rank h3{
+font-size:24px;
+}
+
+.rank p{
+margin-top:10px;
+color:#d6d6d6;
+}
+
+.rank span{
+
+display:block;
+
+margin:20px 0;
+
 font-size:28px;
-margin:15px 0;
-color:#e0b3ff;
+font-weight:900;
+
 }
 
-.buy{
-width:100%;
-padding:12px;
+.rank button{
+
 border:none;
-border-radius:12px;
-background:linear-gradient(90deg,#6a0dad,#b266ff);
-color:white;
-font-weight:bold;
 cursor:pointer;
+
+padding:12px 24px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+background:white;
+
 }
+
+/* Цвета */
+
+.bronze{
+box-shadow:0 0 30px rgba(205,127,50,.4);
+}
+
+.silver{
+box-shadow:0 0 30px rgba(192,192,192,.4);
+}
+
+.gold{
+box-shadow:0 0 30px rgba(255,215,0,.4);
+}
+
+.diamond{
+box-shadow:0 0 30px rgba(0,255,255,.3);
+}
+
+.platinum{
+box-shadow:0 0 30px rgba(255,255,255,.4);
+}
+
+.master{
+box-shadow:0 0 30px rgba(255,120,0,.4);
+}
+
+.supreme{
+box-shadow:0 0 30px rgba(178,102,255,.5);
+}
+
+.dragon{
+box-shadow:0 0 40px rgba(255,0,80,.5);
+}
+
+.sponsor{
+box-shadow:0 0 40px rgba(0,255,120,.5);
+}
+
 </style>
-</head>
+<section id="cars" class="cars">
 
-<body>
+<h2 class="section-title">
+🚗 АВТОСАЛОН
+</h2>
 
-<div class="hero">
+<div class="cars-grid">
 
-<div class="logo">ASTRACITY STORE</div>
-
-<div class="subtitle">
-Официальный магазин проекта AstraCity
-</div>
-
-<div class="server">
-<h3>🚀 Скоро открытие</h3>
-<p>IP сервера появится после запуска проекта</p>
-</div>
-
-<div class="nickname">
-<input placeholder="Введите никнейм">
-</div>
-
-<div class="menu">
-<a href="#priv">👑 Привилегии</a>
-<a href="#cars">🚗 Машины</a>
-<a href="#pass">🎟 AstraPass</a>
-<a href="#amnesty">⚖ Амнистия</a>
-<a href="#money">💰 Валюта</a>
-<a href="#cases">🎁 Кейсы</a>
-<a href="#estate">🏝 Недвижимость</a>
-</div>
-<!-- ПРИВИЛЕГИИ -->
-
-<section class="section" id="priv">
-
-<h2 class="title">👑 Привилегии</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🥉 Bronze</h3>
-<p>Начальная привилегия</p>
-<div class="price">79 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🥈 Silver</h3>
-<p>Дополнительные возможности</p>
-<div class="price">149 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🥇 Gold</h3>
-<p>Популярный выбор игроков</p>
-<div class="price">299 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>💎 Diamond</h3>
-<p>Редкие преимущества</p>
-<div class="price">499 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>👑 Platinum</h3>
-<p>Премиальный статус</p>
-<div class="price">799 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🔥 Master</h3>
-<p>Мощные возможности</p>
-<div class="price">1199 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>⚡ Supreme</h3>
-<p>Неоновая привилегия</p>
-<div class="price">1999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🐉 Dragon</h3>
-<p>Легендарный статус</p>
-<div class="price">2999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>⭐ Sponsor</h3>
-<p>Поддержка проекта</p>
-<div class="price">4999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- МАШИНЫ -->
-
-<section class="section" id="cars">
-
-<h2 class="title">🚗 Машины</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>BMW M5 F90</h3>
-<div class="price">499 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>Mercedes E63</h3>
-<div class="price">599 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>Audi RS6</h3>
-<div class="price">699 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>G63 AMG</h3>
-<div class="price">899 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
+<div class="car-card">
+🏎️
 <h3>Lamborghini Huracan</h3>
-<div class="price">1299 ₽</div>
-<button class="buy">Купить</button>
+<p>Эксклюзивный суперкар</p>
+<span>2999 ₽</span>
 </div>
 
-<div class="card">
-<h3>Ferrari 488</h3>
-<div class="price">1499 ₽</div>
-<button class="buy">Купить</button>
+<div class="car-card">
+🚙
+<h3>Mercedes G63</h3>
+<p>Легендарный внедорожник</p>
+<span>2499 ₽</span>
 </div>
 
-<div class="card">
+<div class="car-card">
+🚗
+<h3>BMW M5 CS</h3>
+<p>Спортивный седан</p>
+<span>1999 ₽</span>
+</div>
+
+<div class="car-card">
+👑
 <h3>Rolls-Royce Cullinan</h3>
-<div class="price">1999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-</div>
-
-</section>
-<!-- ASTRAPASS -->
-
-<section class="section" id="pass">
-
-<h2 class="title">🎟 AstraPass</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>+10 уровней</h3>
-<div class="price">99 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>+25 уровней</h3>
-<div class="price">199 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>+50 уровней</h3>
-<div class="price">349 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>+100 уровней</h3>
-<div class="price">599 ₽</div>
-<button class="buy">Купить</button>
+<p>Автомобиль для элиты</p>
+<span>3999 ₽</span>
 </div>
 
 </div>
 
 </section>
 
-<!-- АМНИСТИЯ -->
+<section class="estate">
 
-<section class="section" id="amnesty">
+<h2 class="section-title">
+🏝️ НЕДВИЖИМОСТЬ
+</h2>
 
-<h2 class="title">⚖ Амнистия</h2>
+<div class="estate-grid">
 
-<div class="cards">
-
-<div class="card">
-<h3>Разбан</h3>
-<div class="price">299 ₽</div>
-<button class="buy">Купить</button>
+<div class="estate-card">
+🏠
+<h3>Дом</h3>
+<span>799 ₽</span>
 </div>
 
-<div class="card">
-<h3>Снятие мута</h3>
-<div class="price">99 ₽</div>
-<button class="buy">Купить</button>
+<div class="estate-card">
+🏢
+<h3>Пентхаус</h3>
+<span>1499 ₽</span>
 </div>
 
-<div class="card">
-<h3>Снятие варна</h3>
-<div class="price">149 ₽</div>
-<button class="buy">Купить</button>
+<div class="estate-card">
+🏰
+<h3>Особняк</h3>
+<span>2999 ₽</span>
 </div>
 
-<div class="card">
-<h3>Снятие ЧС проекта</h3>
-<div class="price">499 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- ВАЛЮТА -->
-
-<section class="section" id="money">
-
-<h2 class="title">💰 Валюта</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>100 000$</h3>
-<div class="price">49 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>500 000$</h3>
-<div class="price">199 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>1 000 000$</h3>
-<div class="price">349 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>5 000 000$</h3>
-<div class="price">1499 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>10 000 000$</h3>
-<div class="price">2499 ₽</div>
-<button class="buy">Купить</button>
+<div class="estate-card">
+🏝️
+<h3>Личный остров</h3>
+<span>6999 ₽</span>
 </div>
 
 </div>
 
 </section>
 
-<!-- КЕЙСЫ -->
+<section class="astrapass">
 
-<section class="section" id="cases">
+<h2 class="section-title">
+🎟️ ASTRAPASS
+</h2>
 
-<h2 class="title">🎁 Кейсы</h2>
+<div class="pass-line">
 
-<div class="cards">
-
-<div class="card">
-<h3>Обычный кейс</h3>
-<div class="price">49 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>Редкий кейс</h3>
-<div class="price">99 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>Эпический кейс</h3>
-<div class="price">199 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>Легендарный кейс</h3>
-<div class="price">399 ₽</div>
-<button class="buy">Купить</button>
-</div>
+<div class="pass-level">1</div>
+<div class="pass-level">5</div>
+<div class="pass-level">10</div>
+<div class="pass-level">25</div>
+<div class="pass-level">50</div>
+<div class="pass-level">100</div>
 
 </div>
+
+<p class="pass-text">
+Получай уникальные награды и эксклюзивные предметы.
+</p>
 
 </section>
 
-<!-- НЕДВИЖИМОСТЬ -->
-
-<section class="section" id="estate">
-
-<h2 class="title">🏝 Недвижимость</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🏠 Особняк</h3>
-<div class="price">2999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🏢 Пентхаус</h3>
-<div class="price">1999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🏝 Личный остров</h3>
-<div class="price">4999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>🚁 VIP Остров</h3>
-<div class="price">9999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-<div class="card">
-<h3>👑 Astra Island Ultimate</h3>
-<div class="price">14999 ₽</div>
-<button class="buy">Купить</button>
-</div>
-
-</div>
-
-</section>
-
-<footer style="padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.1);">
+<footer class="store-footer">
 
 <h2>ASTRACITY STORE</h2>
 
-<p style="margin:15px 0;">
-Скоро открытие проекта
+<p>
+Спасибо за поддержку проекта 💜
 </p>
-
-<a href="https://discord.gg/zVWzNKr5D"
-style="
-display:inline-block;
-padding:14px 30px;
-border-radius:14px;
-background:#5865F2;
-color:white;
-text-decoration:none;
-font-weight:bold;
-">
-💬 Discord
-</a>
 
 </footer>
 
-<script>
-for(let i=0;i<40;i++){
-let star=document.createElement('div');
-star.classList.add('star');
+<style>
 
-star.style.left=Math.random()*100+'vw';
-star.style.top=Math.random()*100+'vh';
-
-star.style.animation=
-`fall ${Math.random()*4+3}s linear infinite`;
-
-document.body.appendChild(star);
+.cars,
+.estate,
+.astrapass{
+padding:100px 20px;
 }
 
-const style=document.createElement('style');
+.cars-grid,
+.estate-grid{
 
-style.innerHTML=`
-@keyframes fall{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+max-width:1400px;
+margin:auto;
+
+}
+
+.car-card,
+.estate-card{
+
+background:
+rgba(255,255,255,.05);
+
+padding:25px;
+
+border-radius:22px;
+
+text-align:center;
+
+backdrop-filter:blur(15px);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+transition:.4s;
+
+}
+
+.car-card:hover,
+.estate-card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 0 40px rgba(178,102,255,.4);
+
+}
+
+.car-card h3,
+.estate-card h3{
+
+margin:15px 0;
+
+}
+
+.car-card span,
+.estate-card span{
+
+display:block;
+
+margin-top:15px;
+
+font-size:24px;
+font-weight:900;
+
+color:#d4a5ff;
+
+}
+
+.pass-line{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+
+margin-top:40px;
+
+}
+
+.pass-level{
+
+width:70px;
+height:70px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-weight:900;
+
+background:
+linear-gradient(
+90deg,
+#6a0dad,
+#b266ff
+);
+
+box-shadow:
+0 0 25px rgba(178,102,255,.5);
+
+}
+
+.pass-text{
+
+text-align:center;
+margin-top:30px;
+color:#d6d6d6;
+
+}
+
+.store-footer{
+
+padding:80px 20px;
+
+text-align:center;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+
+}
+
+.store-footer h2{
+
+color:#d4a5ff;
+
+margin-bottom:15px;
+
+}
+
+/* Эффект свечения */
+
+.car-card,
+.estate-card,
+.rank{
+
+animation:
+floatCard 4s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
 0%{
-transform:translateY(-100px) translateX(0) rotate(45deg);
-opacity:0;
+transform:translateY(0);
 }
-10%{
-opacity:1;
-}
-100%{
-transform:translateY(120vh) translateX(300px) rotate(45deg);
-opacity:0;
-}
-}
-`;
 
-document.head.appendChild(style);
-</script>
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+</style>
 
 </body>
 </html>
