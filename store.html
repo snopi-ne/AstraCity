@@ -180,6 +180,239 @@ color:#45ff45;
 }
 
 </style>
+<style>
+    .online {
+        margin-top: 30px;
+        font-size: 26px;
+        color: #45ff45;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .online::before {
+        content: "●";
+        animation: blink 1.2s infinite;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
+    }
+</style>
+
+<div class="online">Online</div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0f1e;
+            color: #fff;
+            font-family: system-ui, sans-serif;
+            padding-bottom: 60px;
+        }
+
+        /* ===== ONLINE СТАТУС (ИСПРАВЛЕН) ===== */
+        .online {
+            margin-top: 30px;
+            font-size: 26px;
+            text-align: center;
+            color: #45ff45;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .online::before {
+            content: "●";
+            font-size: 30px;
+            animation: blink 1.2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        /* ===== КАТЕГОРИИ ===== */
+        .categories {
+            width: 92%;
+            max-width: 1400px;
+            margin: 60px auto 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            background: #0f172a;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, .08);
+            cursor: pointer;
+            transition: .3s;
+        }
+        .category:hover {
+            transform: scale(1.03);
+        }
+
+        .active {
+            background: linear-gradient(135deg, #7c3aed, #c084fc);
+            color: white;
+        }
+
+        /* ===== ТОВАРЫ ===== */
+        .products {
+            width: 92%;
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #0f172a;
+            border-radius: 30px;
+            overflow: hidden;
+            padding-bottom: 25px;
+            transition: .4s;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+        }
+
+        .bronze { background: linear-gradient(135deg, #a16207, #f59e0b); }
+        .silver { background: linear-gradient(135deg, #6b7280, #d1d5db); }
+        .gold   { background: linear-gradient(135deg, #eab308, #fde047); }
+        .diamond{ background: linear-gradient(135deg, #06b6d4, #67e8f9); }
+
+        .product-card h3 {
+            padding: 20px 20px 10px;
+            font-size: 34px;
+        }
+        .product-card p {
+            padding: 0 20px;
+            opacity: .8;
+        }
+
+        .price {
+            padding: 20px;
+            font-size: 38px;
+            font-weight: 900;
+            color: #ff9b73;
+        }
+
+        .buy-btn {
+            width: calc(100% - 40px);
+            margin: 0 20px;
+            height: 60px;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #ff7a45, #ff9671);
+            transition: .3s;
+        }
+        .buy-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 122, 69, .4);
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 768px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .product-card h3 {
+                font-size: 26px;
+            }
+            .price {
+                font-size: 30px;
+            }
+            .online {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== СТАТУС ONLINE (РАБОТАЕТ) ===== -->
+    <div class="online">Online</div>
+
+    <!-- ===== КАТЕГОРИИ ===== -->
+    <div class="categories">
+        <div class="category active">Все</div>
+        <div class="category">Бронза</div>
+        <div class="category">Серебро</div>
+        <div class="category">Золото</div>
+    </div>
+
+    <!-- ===== ТОВАРЫ ===== -->
+    <div class="products">
+        <div class="product-card">
+            <div class="product-image bronze">🏆</div>
+            <h3>Бронза</h3>
+            <p>Начальный набор</p>
+            <div class="price">$49</div>
+            <button class="buy-btn">Купить</button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image silver">🥈</div>
+            <h3>Серебро</h3>
+            <p>Оптимальный выбор</p>
+            <div class="price">$99</div>
+            <button class="buy-btn">Купить</button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image gold">🥇</div>
+            <h3>Золото</h3>
+            <p>Премиум класс</p>
+            <div class="price">$199</div>
+            <button class="buy-btn">Купить</button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image diamond">💎</div>
+            <h3>Бриллиант</h3>
+            <p>Эксклюзив</p>
+            <div class="price">$499</div>
+            <button class="buy-btn">Купить</button>
+        </div>
+    </div>
+
+</body>
+</html>
 </head>
 
 <body>
@@ -225,4 +458,115 @@ IP: play.astracity.ru
 </section>
 
 </body>
+  <section id="shop" class="categories">
+
+<div class="category active">
+💎 Привилегии
+</div>
+
+<div class="category">
+🚗 Автомобили
+</div>
+
+<div class="category">
+🏝️ Недвижимость
+</div>
+
+<div class="category">
+🎟️ AstraPass
+</div>
+
+</section>
+
+<section class="products">
+
+<div class="product-card">
+
+<div class="product-image bronze">
+🥉
+</div>
+
+<h3>BRONZE</h3>
+
+<p>
+Стартовая привилегия проекта
+</p>
+
+<div class="price">
+99 ₽
+</div>
+
+<button class="buy-btn">
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image silver">
+🥈
+</div>
+
+<h3>SILVER</h3>
+
+<p>
+Дополнительные возможности
+</p>
+
+<div class="price">
+199 ₽
+</div>
+
+<button class="buy-btn">
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image gold">
+🥇
+</div>
+
+<h3>GOLD</h3>
+
+<p>
+Расширенные команды
+</p>
+
+<div class="price">
+399 ₽
+</div>
+
+<button class="buy-btn">
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image diamond">
+💎
+</div>
+
+<h3>DIAMOND</h3>
+
+<p>
+Премиум возможности
+</p>
+
+<div class="price">
+699 ₽
+</div>
+
+<button class="buy-btn">
+КУПИТЬ
+</button>
+
+</div>
+
+</section>
 </html>
