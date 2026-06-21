@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ASTRA CITY STORE</title>
 
 <style>
@@ -11,13 +12,12 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
 background:#050814;
-font-family:Arial,sans-serif;
 color:white;
-min-height:100vh;
 overflow-x:hidden;
 }
 
@@ -28,7 +28,7 @@ left:0;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(5,8,20,.85),rgba(5,8,20,.9)),
+linear-gradient(rgba(5,8,20,.85),rgba(5,8,20,.92)),
 url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df');
 background-size:cover;
 background-position:center;
@@ -43,12 +43,12 @@ transform:translateX(-50%);
 width:92%;
 height:80px;
 background:rgba(10,15,30,.9);
+backdrop-filter:blur(20px);
 border-radius:25px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 25px;
-backdrop-filter:blur(15px);
 z-index:999;
 }
 
@@ -64,9 +64,80 @@ cursor:pointer;
 }
 
 .content{
-padding-top:130px;
 width:92%;
 margin:auto;
+padding-top:130px;
+}
+
+.categories{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-bottom:30px;
+}
+
+.category{
+background:rgba(10,15,30,.9);
+padding:20px;
+border-radius:20px;
+text-align:center;
+font-size:22px;
+font-weight:700;
+}
+
+.active{
+background:linear-gradient(135deg,#7d2cff,#bf72ff);
+}
+
+.products{
+display:grid;
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.product-card{
+background:rgba(10,15,30,.95);
+border-radius:25px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.product-image{
+height:180px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+background:linear-gradient(135deg,#7d2cff,#bf72ff);
+}
+
+.product-card h2{
+padding:20px 20px 10px;
+font-size:34px;
+}
+
+.product-card p{
+padding:0 20px;
+color:#cccccc;
+}
+
+.price{
+padding:20px;
+font-size:32px;
+font-weight:900;
+color:#ff8a5c;
+}
+
+.buy-btn{
+width:calc(100% - 40px);
+margin:0 20px 20px;
+height:60px;
+border:none;
+border-radius:15px;
+font-size:22px;
+font-weight:700;
+color:white;
+background:linear-gradient(135deg,#ff7b4a,#ff9d7a);
 }
 
 </style>
@@ -87,6 +158,7 @@ ASTRA CITY
 </div>
 
 <div class="content">
+
 <div class="categories">
 
 <div class="category active">
@@ -108,380 +180,3 @@ ASTRA CITY
 </div>
 
 <div class="products">
-
-<div class="product-card">
-
-<div class="product-image">
-🥉
-</div>
-
-<h2>BRONZE</h2>
-
-<p>
-Стартовая привилегия сервера
-</p>
-
-<div class="price">
-99 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🥈
-</div>
-
-<h2>SILVER</h2>
-
-<p>
-Дополнительные возможности
-</p>
-
-<div class="price">
-199 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🥇
-</div>
-
-<h2>GOLD</h2>
-
-<p>
-Расширенные возможности
-</p>
-
-<div class="price">
-399 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-</div>
-</div>
-
-</body>
-</html>
-<div class="product-card">
-
-<div class="product-image">
-💎
-</div>
-
-<h2>DIAMOND</h2>
-
-<p>
-Премиум возможности сервера
-</p>
-
-<div class="price">
-699 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-👑
-</div>
-
-<h2>PLATINUM</h2>
-
-<p>
-Редкая привилегия проекта
-</p>
-
-<div class="price">
-999 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🔥
-</div>
-
-<h2>MASTER</h2>
-
-<p>
-Для опытных игроков
-</p>
-
-<div class="price">
-1499 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-⚡
-</div>
-
-<h2>SUPREME</h2>
-
-<p>
-Максимум возможностей
-</p>
-
-<div class="price">
-2499 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🐉
-</div>
-
-<h2>DRAGON</h2>
-
-<p>
-Легендарный статус
-</p>
-
-<div class="price">
-3999 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🌟
-</div>
-
-<h2>SPONSOR</h2>
-
-<p>
-Высший ранг Astra City
-</p>
-
-<div class="price">
-5999 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-<div class="product-card">
-
-<div class="product-image">
-🚗
-</div>
-
-<h2>BMW M5</h2>
-
-<p>
-Спортивный автомобиль
-</p>
-
-<div class="price">
-299 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🏎️
-</div>
-
-<h2>Ferrari</h2>
-
-<p>
-Премиальный суперкар
-</p>
-
-<div class="price">
-599 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🚘
-</div>
-
-<h2>Mercedes G63</h2>
-
-<p>
-Статусный внедорожник
-</p>
-
-<div class="price">
-799 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🚙
-</div>
-
-<h2>Range Rover</h2>
-
-<p>
-Комфорт и проходимость
-</p>
-
-<div class="price">
-999 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-<div class="product-card">
-
-<div class="product-image">
-🏠
-</div>
-
-<h2>Квартира</h2>
-
-<p>
-Личное жильё в центре города
-</p>
-
-<div class="price">
-199 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🏡
-</div>
-
-<h2>Коттедж</h2>
-
-<p>
-Большой дом с гаражом
-</p>
-
-<div class="price">
-499 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🏰
-</div>
-
-<h2>Особняк</h2>
-
-<p>
-Роскошный дом для богатых игроков
-</p>
-
-<div class="price">
-999 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
-
-<div class="product-card">
-
-<div class="product-image">
-🏝️
-</div>
-
-<h2>Личный остров</h2>
-
-<p>
-Уникальная территория только для тебя
-</p>
-
-<div class="price">
-2499 ₽
-</div>
-
-<button>
-КУПИТЬ
-</button>
-
-</div>
