@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Astra City Store</title>
+<title>ASTRA CITY STORE</title>
 
 <style>
 
@@ -12,453 +11,83 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
 }
 
 body{
-
-background:#050816;
+background:#050814;
+font-family:Arial,sans-serif;
 color:white;
+min-height:100vh;
 overflow-x:hidden;
-
 }
 
-body::before{
-
-content:"";
+.store-bg{
 position:fixed;
-inset:0;
-
+top:0;
+left:0;
+width:100%;
+height:100%;
 background:
-linear-gradient(
-rgba(0,0,0,.75),
-rgba(0,0,0,.85)
-),
-url("https://images.unsplash.com/photo-1514565131-fce0801e5785");
-
+linear-gradient(rgba(5,8,20,.85),rgba(5,8,20,.9)),
+url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df');
 background-size:cover;
 background-position:center;
-
-z-index:-2;
-
+z-index:-1;
 }
 
 .header{
-
 position:fixed;
-
 top:20px;
 left:50%;
-
 transform:translateX(-50%);
-
 width:92%;
 height:80px;
-
-background:rgba(10,15,30,.85);
-
-backdrop-filter:blur(20px);
-
-border-radius:30px;
-
+background:rgba(10,15,30,.9);
+border-radius:25px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:0 25px;
-
-z-index:9999;
-
-border:1px solid rgba(255,255,255,.08);
-
+backdrop-filter:blur(15px);
+z-index:999;
 }
 
 .logo{
-
 font-size:32px;
 font-weight:900;
-
-color:#ff7a45;
-
+color:#ff7b4a;
 }
 
-.hero{
-
-padding-top:140px;
-
-display:flex;
-justify-content:center;
-
+.icon{
+font-size:30px;
+cursor:pointer;
 }
 
-.hero-card{
-
+.content{
+padding-top:130px;
 width:92%;
-max-width:1400px;
-
-height:550px;
-
-border-radius:40px;
-
-overflow:hidden;
-
-position:relative;
-
-background:
-linear-gradient(
-rgba(0,0,0,.45),
-rgba(0,0,0,.75)
-),
-url("https://images.unsplash.com/photo-1519501025264-65ba15a82390");
-
-background-size:cover;
-background-position:center;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-text-align:center;
-
-}
-
-.hero-content h1{
-
-font-size:80px;
-font-weight:900;
-
-margin-bottom:20px;
-
-}
-
-.hero-content p{
-
-font-size:24px;
-
-opacity:.9;
-
-margin-bottom:30px;
-
-}
-
-.play-btn{
-
-display:inline-block;
-
-padding:18px 50px;
-
-border-radius:20px;
-
-text-decoration:none;
-
-color:white;
-
-font-size:22px;
-font-weight:700;
-
-background:
-linear-gradient(
-135deg,
-#ff7a45,
-#ff9671
-);
-
-}
-
-.online{
-
-margin-top:30px;
-
-font-size:26px;
-
-}
-
-.green{
-
-color:#45ff45;
-
+margin:auto;
 }
 
 </style>
-<style>
-    .online {
-        margin-top: 30px;
-        font-size: 26px;
-        color: #45ff45;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-    .online::before {
-        content: "●";
-        animation: blink 1.2s infinite;
-    }
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.2; }
-    }
-</style>
-
-<div class="online">Online</div>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #0a0f1e;
-            color: #fff;
-            font-family: system-ui, sans-serif;
-            padding-bottom: 60px;
-        }
-
-        /* ===== ONLINE СТАТУС (ИСПРАВЛЕН) ===== */
-        .online {
-            margin-top: 30px;
-            font-size: 26px;
-            text-align: center;
-            color: #45ff45;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .online::before {
-            content: "●";
-            font-size: 30px;
-            animation: blink 1.2s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.2; }
-        }
-
-        /* ===== КАТЕГОРИИ ===== */
-        .categories {
-            width: 92%;
-            max-width: 1400px;
-            margin: 60px auto 30px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .category {
-            background: #0f172a;
-            padding: 25px;
-            border-radius: 25px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, .08);
-            cursor: pointer;
-            transition: .3s;
-        }
-        .category:hover {
-            transform: scale(1.03);
-        }
-
-        .active {
-            background: linear-gradient(135deg, #7c3aed, #c084fc);
-            color: white;
-        }
-
-        /* ===== ТОВАРЫ ===== */
-        .products {
-            width: 92%;
-            max-width: 1400px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .product-card {
-            background: #0f172a;
-            border-radius: 30px;
-            overflow: hidden;
-            padding-bottom: 25px;
-            transition: .4s;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .product-image {
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
-        }
-
-        .bronze { background: linear-gradient(135deg, #a16207, #f59e0b); }
-        .silver { background: linear-gradient(135deg, #6b7280, #d1d5db); }
-        .gold   { background: linear-gradient(135deg, #eab308, #fde047); }
-        .diamond{ background: linear-gradient(135deg, #06b6d4, #67e8f9); }
-
-        .product-card h3 {
-            padding: 20px 20px 10px;
-            font-size: 34px;
-        }
-        .product-card p {
-            padding: 0 20px;
-            opacity: .8;
-        }
-
-        .price {
-            padding: 20px;
-            font-size: 38px;
-            font-weight: 900;
-            color: #ff9b73;
-        }
-
-        .buy-btn {
-            width: calc(100% - 40px);
-            margin: 0 20px;
-            height: 60px;
-            border: none;
-            border-radius: 18px;
-            cursor: pointer;
-            font-size: 20px;
-            font-weight: 700;
-            color: white;
-            background: linear-gradient(135deg, #ff7a45, #ff9671);
-            transition: .3s;
-        }
-        .buy-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(255, 122, 69, .4);
-        }
-
-        /* ===== АДАПТИВ ===== */
-        @media (max-width: 768px) {
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            .product-card h3 {
-                font-size: 26px;
-            }
-            .price {
-                font-size: 30px;
-            }
-            .online {
-                font-size: 20px;
-            }
-        }
-        @media (max-width: 480px) {
-            .categories {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ===== СТАТУС ONLINE (РАБОТАЕТ) ===== -->
-    <div class="online">Online</div>
-
-    <!-- ===== КАТЕГОРИИ ===== -->
-    <div class="categories">
-        <div class="category active">Все</div>
-        <div class="category">Бронза</div>
-        <div class="category">Серебро</div>
-        <div class="category">Золото</div>
-    </div>
-
-    <!-- ===== ТОВАРЫ ===== -->
-    <div class="products">
-        <div class="product-card">
-            <div class="product-image bronze">🏆</div>
-            <h3>Бронза</h3>
-            <p>Начальный набор</p>
-            <div class="price">$49</div>
-            <button class="buy-btn">Купить</button>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image silver">🥈</div>
-            <h3>Серебро</h3>
-            <p>Оптимальный выбор</p>
-            <div class="price">$99</div>
-            <button class="buy-btn">Купить</button>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image gold">🥇</div>
-            <h3>Золото</h3>
-            <p>Премиум класс</p>
-            <div class="price">$199</div>
-            <button class="buy-btn">Купить</button>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image diamond">💎</div>
-            <h3>Бриллиант</h3>
-            <p>Эксклюзив</p>
-            <div class="price">$499</div>
-            <button class="buy-btn">Купить</button>
-        </div>
-    </div>
-
-</body>
-</html>
 </head>
 
 <body>
+
+<div class="store-bg"></div>
 
 <div class="header">
-
-<div>☰</div>
+<div class="icon">☰</div>
 
 <div class="logo">
 ASTRA CITY
 </div>
 
-<div>🛒</div>
-
+<div class="icon">🛒</div>
 </div>
 
-<section class="hero">
-
-<div class="hero-card">
-
-<div class="hero-content">
-
-<h1>
-ASTRA CITY STORE
-</h1>
-
-<p>
-IP: play.astracity.ru
-</p>
-
-<a href="#shop" class="play-btn">
-Перейти в магазин
-</a>
-
-<div class="online">
-🟢 0 игроков онлайн
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</body>
-  <section id="shop" class="categories">
+<div class="content">
+<div class="categories">
 
 <div class="category active">
 💎 Привилегии
@@ -476,27 +105,27 @@ IP: play.astracity.ru
 🎟️ AstraPass
 </div>
 
-</section>
+</div>
 
-<section class="products">
+<div class="products">
 
 <div class="product-card">
 
-<div class="product-image bronze">
+<div class="product-image">
 🥉
 </div>
 
-<h3>BRONZE</h3>
+<h2>BRONZE</h2>
 
 <p>
-Стартовая привилегия проекта
+Стартовая привилегия сервера
 </p>
 
 <div class="price">
 99 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
@@ -504,11 +133,11 @@ IP: play.astracity.ru
 
 <div class="product-card">
 
-<div class="product-image silver">
+<div class="product-image">
 🥈
 </div>
 
-<h3>SILVER</h3>
+<h2>SILVER</h2>
 
 <p>
 Дополнительные возможности
@@ -518,7 +147,7 @@ IP: play.astracity.ru
 199 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
@@ -526,67 +155,70 @@ IP: play.astracity.ru
 
 <div class="product-card">
 
-<div class="product-image gold">
+<div class="product-image">
 🥇
 </div>
 
-<h3>GOLD</h3>
+<h2>GOLD</h2>
 
 <p>
-Расширенные команды
+Расширенные возможности
 </p>
 
 <div class="price">
 399 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
 </div>
 
+</div>
+</div>
+
+</body>
+</html>
 <div class="product-card">
 
-<div class="product-image diamond">
+<div class="product-image">
 💎
 </div>
 
-<h3>DIAMOND</h3>
+<h2>DIAMOND</h2>
 
 <p>
-Премиум возможности
+Премиум возможности сервера
 </p>
 
 <div class="price">
 699 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
 </div>
 
-</section>
-</html>
 <div class="product-card">
 
 <div class="product-image">
 👑
 </div>
 
-<h3>PLATINUM</h3>
+<h2>PLATINUM</h2>
 
 <p>
-Эксклюзивные возможности сервера
+Редкая привилегия проекта
 </p>
 
 <div class="price">
 999 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
@@ -598,17 +230,17 @@ IP: play.astracity.ru
 🔥
 </div>
 
-<h3>MASTER</h3>
+<h2>MASTER</h2>
 
 <p>
-Для настоящих лидеров Astra City
+Для опытных игроков
 </p>
 
 <div class="price">
 1499 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
@@ -620,17 +252,17 @@ IP: play.astracity.ru
 ⚡
 </div>
 
-<h3>SUPREME</h3>
+<h2>SUPREME</h2>
 
 <p>
-Максимальный набор возможностей
+Максимум возможностей
 </p>
 
 <div class="price">
 2499 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
@@ -642,17 +274,17 @@ IP: play.astracity.ru
 🐉
 </div>
 
-<h3>DRAGON</h3>
+<h2>DRAGON</h2>
 
 <p>
-Легендарная привилегия проекта
+Легендарный статус
 </p>
 
 <div class="price">
 3999 ₽
 </div>
 
-<button class="buy-btn">
+<button>
 КУПИТЬ
 </button>
 
@@ -664,17 +296,191 @@ IP: play.astracity.ru
 🌟
 </div>
 
-<h3>SPONSOR</h3>
+<h2>SPONSOR</h2>
 
 <p>
-Высший статус Astra City
+Высший ранг Astra City
 </p>
 
 <div class="price">
 5999 ₽
 </div>
 
-<button class="buy-btn">
+<button>
+КУПИТЬ
+</button>
+
+</div>
+<div class="product-card">
+
+<div class="product-image">
+🚗
+</div>
+
+<h2>BMW M5</h2>
+
+<p>
+Спортивный автомобиль
+</p>
+
+<div class="price">
+299 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image">
+🏎️
+</div>
+
+<h2>Ferrari</h2>
+
+<p>
+Премиальный суперкар
+</p>
+
+<div class="price">
+599 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image">
+🚘
+</div>
+
+<h2>Mercedes G63</h2>
+
+<p>
+Статусный внедорожник
+</p>
+
+<div class="price">
+799 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image">
+🚙
+</div>
+
+<h2>Range Rover</h2>
+
+<p>
+Комфорт и проходимость
+</p>
+
+<div class="price">
+999 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+<div class="product-card">
+
+<div class="product-image">
+🏠
+</div>
+
+<h2>Квартира</h2>
+
+<p>
+Личное жильё в центре города
+</p>
+
+<div class="price">
+199 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image">
+🏡
+</div>
+
+<h2>Коттедж</h2>
+
+<p>
+Большой дом с гаражом
+</p>
+
+<div class="price">
+499 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image">
+🏰
+</div>
+
+<h2>Особняк</h2>
+
+<p>
+Роскошный дом для богатых игроков
+</p>
+
+<div class="price">
+999 ₽
+</div>
+
+<button>
+КУПИТЬ
+</button>
+
+</div>
+
+<div class="product-card">
+
+<div class="product-image">
+🏝️
+</div>
+
+<h2>Личный остров</h2>
+
+<p>
+Уникальная территория только для тебя
+</p>
+
+<div class="price">
+2499 ₽
+</div>
+
+<button>
 КУПИТЬ
 </button>
 
